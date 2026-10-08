@@ -1,0 +1,30 @@
+name: attribution-nightly
+
+# Resolves identities, stitches journeys, recomputes the five models and the
+# cost per funded loan by channel. Nightly, 03:00 London.
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  attribution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node bin/gtm.js seed
+      - run: node bin/gtm.js attribution run
+      - uses: actions/upload-artifact@v4
+        with:
+          name: attribution-${{ github.run_id }}
+          path: |
+            reports/attribution/
+            logs/
+          retention-days: 30

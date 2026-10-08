@@ -1,0 +1,45 @@
+name: audience-daily
+
+# Keeps the professional audience current: discover → dedup → enrich → qualify → push (capped),
+# then pulls reply statuses back from the sequencer. Weekdays, 07:00 London.
+# In this demo repo the database is rebuilt from the seed on every run; in production the
+# same tasks point at the managed Postgres that the Salesforce sync writes into.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1-5'   # 06:00 UTC = 07:00 BST / 06:00 GMT
+  workflow_dispatch:
+
+concurrency:
+  group: audience
+  cancel-in-progress: false
+
+jobs:
+  audience:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - name: Build the world (demo only)
+        run: node bin/gtm.js seed
+      - name: Discover, dedup, enrich, qualify, push
+        run: node bin/gtm.js audience run
+      - name: Sync sequencer statuses
+        run: node bin/gtm.js audience sync
+      - name: Buying signals
+        run: node bin/gtm.js audience signals
+        env:
+          SLACK_SIGNALS_WEBHOOK_URL: ${{ secrets.SLACK_SIGNALS_WEBHOOK_URL }}
+      - name: Keep run manifests and logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: audience-run-${{ github.run_id }}
+          path: |
+            runs/
+            logs/
+          retention-days: 30

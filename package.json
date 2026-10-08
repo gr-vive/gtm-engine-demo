@@ -1,0 +1,31 @@
+{
+  "name": "gtm-engine-demo",
+  "version": "0.1.0",
+  "description": "Growth engine for a fictional UK specialist lender: audience pipeline, first-click-to-funded-loan attribution, weekly numbers, and a shadow-mode AI triage layer. Synthetic data only.",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "bin": {
+    "gtm": "bin/gtm.js"
+  },
+  "scripts": {
+    "demo": "node bin/gtm.js demo",
+    "seed": "node bin/gtm.js seed",
+    "audience": "node bin/gtm.js audience run",
+    "attribution": "node bin/gtm.js attribution run",
+    "report": "node bin/gtm.js report weekly",
+    "digest": "node bin/gtm.js report digest",
+    "dashboard": "node bin/gtm.js report dashboard",
+    "triage": "node bin/gtm.js ai triage",
+    "shadow-eval": "node bin/gtm.js ai shadow-eval",
+    "schedule": "node bin/gtm.js schedule",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
+    "dotenv": "^17.2.3",
+    "node-cron": "^4.2.1"
+  }
+}

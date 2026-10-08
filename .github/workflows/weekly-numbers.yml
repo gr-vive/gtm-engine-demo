@@ -1,0 +1,48 @@
+name: weekly-numbers
+
+# Monday 08:00 London: the weekly funnel by product and channel, the Slack digest,
+# and the dashboard. Commits the markdown report and site/index.html back to the
+# repo so the numbers have a history and GitHub Pages serves the latest page.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-numbers
+  cancel-in-progress: false
+
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node bin/gtm.js seed
+      - run: node bin/gtm.js attribution run
+      - run: node bin/gtm.js report weekly
+      - name: Slack digest (dry run unless the secret is set)
+        run: node bin/gtm.js report digest
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: AI shadow evaluation for the dashboard
+        run: |
+          node bin/gtm.js ai triage --limit=240
+          node bin/gtm.js ai shadow-eval
+      - run: node bin/gtm.js report dashboard
+      - name: Commit report and dashboard
+        run: |
+          git config user.name "gtm-engine[bot]"
+          git config user.email "bot@users.noreply.github.com"
+          git add reports/weekly/*.md reports/attribution/*.md site/index.html
+          git diff --staged --quiet || git commit -m "report: weekly numbers $(date -u +'%G-W%V')"
+          git push

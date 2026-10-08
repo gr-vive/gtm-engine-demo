@@ -1,0 +1,44 @@
+name: ai-shadow
+
+# Reads new enquiries, applies the coded rules, logs decisions in shadow mode.
+# Weekdays 09:00 London; the Friday run also produces the shadow evaluation
+# that gates promotion to assist mode. Live model calls happen only when
+# ANTHROPIC_API_KEY is set as a repository secret; otherwise cached fixtures or
+# the mock reader are used and labelled as such in the audit log.
+
+on:
+  schedule:
+    - cron: '0 8 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      live:
+        description: 'Use live model calls (needs ANTHROPIC_API_KEY)'
+        type: boolean
+        default: false
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: node bin/gtm.js seed
+      - name: Triage (shadow mode)
+        run: node bin/gtm.js ai triage --limit=240 ${{ inputs.live && '--live' || '' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AI_MODE: shadow
+      - name: Shadow evaluation (gate)
+        run: node bin/gtm.js ai shadow-eval
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-shadow-${{ github.run_id }}
+          path: |
+            logs/
+            data/fixtures/
+          retention-days: 30

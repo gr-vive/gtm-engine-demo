@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Generated at runtime
+data/gtm.db
+data/gtm.db-journal
+data/gtm.db-wal
+runs/
+logs/
+reports/**/*.json
+site/media/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
