@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 21000,
+    "security_gbp": 950500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Xu Solicitors",
+    "stage": "Pending grant of probate, expected within 10 weeks",
+    "summary": "A solicitor acting for executors asks for £21,000 to cover inheritance tax and legal fees against an estate valued at £950,500 while the grant of probate is awaited.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry regarding probate funding for your executor clients. We have noted the estate value of £950,500 and the £21,000 requested for inheritance tax and costs pending the grant. To take this further we would need confirmation of the jurisdiction in which the estate is being administered, a breakdown of the estate assets and any liabilities, the IHT payment deadline, details of the executors, and confirmation of whether any other charges exist over the estate property. Please also send a copy of the will and the draft IHT account if available. We will review the matter once this information is to hand and come back to you."
+  },
+  "latency_ms": 5761,
+  "input_tokens": 1463,
+  "output_tokens": 418,
+  "cost_usd": 0.017765,
+  "prompt_hash": "0ddd348cd0f2eab8",
+  "cached_at": "2026-10-08T18:41:26.316Z"
+}

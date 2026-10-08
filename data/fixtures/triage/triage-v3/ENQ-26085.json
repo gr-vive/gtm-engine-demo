@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 48000,
+    "security_gbp": 710000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Rahman Legal LLP",
+    "stage": "Pre-grant; inheritance tax due before grant can issue",
+    "summary": "A solicitor administering a £710,000 Bath estate, mostly illiquid property, asks for £48,000 to pay inheritance tax before the grant of probate can be issued.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry about funding for the Bath estate. To take this further we would need a breakdown of the estate's assets and liabilities, confirmation of the IHT figure and any payment deadline, details of the executors and their consent, and confirmation of your firm's involvement in the administration. Please also let us know whether any property is being marketed or whether an instalment option has been considered. Once we have those details we will review the enquiry and come back to you. Nothing in this message constitutes an offer of funding or legal advice."
+  },
+  "latency_ms": 14464,
+  "input_tokens": 1477,
+  "output_tokens": 413,
+  "cost_usd": 0.01771,
+  "prompt_hash": "c78b5b02af8ce0c4",
+  "cached_at": "2026-10-08T18:43:41.501Z"
+}

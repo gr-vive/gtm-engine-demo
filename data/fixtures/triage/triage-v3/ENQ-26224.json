@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 38500,
+    "security_gbp": 345000,
+    "hearing_in_days": 71,
+    "has_solicitor": true,
+    "solicitor_firm": "Beckford Legal LLP",
+    "stage": "Financial remedy proceedings, final hearing listed",
+    "summary": "A solicitor at Beckford Legal LLP seeks around £38,500 to fund her client's costs to a final hearing in financial remedy proceedings at the Family Court at Manchester, where matrimonial assets are around £345,000.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry regarding funding for your client's financial remedy proceedings. We have logged the details you provided, including the estimated costs to final hearing and the approximate value of the matrimonial assets. To take this further we would need your client's details and identification, a costs estimate or schedule, confirmation of the listing and current stage, and details of the assets in dispute including titles, valuations and any charges or other interests. Please also confirm your client's circumstances regarding income and any other available funding. Once we have these we will review the enquiry and come back to you."
+  },
+  "latency_ms": 6301,
+  "input_tokens": 1525,
+  "output_tokens": 418,
+  "cost_usd": 0.018075,
+  "prompt_hash": "a21a3c1c29716209",
+  "cached_at": "2026-10-08T18:43:33.338Z"
+}

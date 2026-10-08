@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 48000,
+    "security_gbp": 1252000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Varga & Dlamini Law",
+    "stage": "Financial remedy proceedings, pre-final hearing",
+    "summary": "A family solicitor enquires about funding approximately £48,000 of costs to final hearing for a respondent in financial remedy proceedings at the Family Court at Birmingham, where matrimonial assets are around £1.252m.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry and for the background on this matter. To take it further we would need the date of the next hearing and the anticipated timetable to final hearing, a costs estimate or schedule broken down by stage, and details of your client's interest in the matrimonial assets, including the properties, any mortgages or charges and any other claims against them. We would also need your client's details for identity and anti-money laundering checks, together with confirmation of your firm's instruction and any Form E or asset schedule already filed. Once we have those we will review the enquiry and come back to you. Nothing in this message should be taken as an indication that funding will be available or on what terms."
+  },
+  "latency_ms": 7339,
+  "input_tokens": 1510,
+  "output_tokens": 408,
+  "cost_usd": 0.01775,
+  "prompt_hash": "a667bf5b581bef74",
+  "cached_at": "2026-10-08T18:39:02.704Z"
+}

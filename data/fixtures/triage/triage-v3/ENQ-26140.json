@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 46500,
+    "security_gbp": 506500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Xu Solicitors",
+    "stage": "Pending grant of probate, grant expected within 15 weeks",
+    "summary": "A solicitor acting for executors of a Guildford estate valued at £506,500 enquires about a £46,500 probate loan to cover inheritance tax and legal fees while the grant of probate is awaited.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry regarding executor funding for the Guildford estate. We have noted the estate value of £506,500 and the £46,500 requested for inheritance tax and your firm's fees pending the grant. To take this further we would need confirmation of the executors' details and their consent, a breakdown of the estate assets and any liabilities, details of the property including title and any charges, the IHT position and any relevant payment dates, and confirmation of your firm's engagement. Once those are with us the enquiry will be passed to our assessment team for review. Please do let us know if any of the figures above need correcting."
+  },
+  "latency_ms": 7605,
+  "input_tokens": 1460,
+  "output_tokens": 441,
+  "cost_usd": 0.018325,
+  "prompt_hash": "1a7ac2f0a8dc125c",
+  "cached_at": "2026-10-08T18:41:53.290Z"
+}

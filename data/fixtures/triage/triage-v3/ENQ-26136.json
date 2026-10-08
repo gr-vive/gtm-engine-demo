@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 24000,
+    "security_gbp": 419000,
+    "hearing_in_days": 70,
+    "has_solicitor": true,
+    "solicitor_firm": "Iqbal & Jensen Family Law",
+    "stage": "Financial remedy proceedings, next hearing listed",
+    "summary": "A solicitor enquires about a £24,000 litigation loan for her client, the wife in divorce financial remedy proceedings with around £419,000 of assets in dispute and a hearing at the Family Court at Cardiff on 29 November.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry about funding for your client's financial remedy proceedings; we have logged the details you provided. To progress matters we will need your client's full name and contact details, confirmation of the nature of the hearing listed on 29 November, a breakdown and estimate of the costs to be funded, and details of the assets in dispute including any existing charges or encumbrances. It would also help to have confirmation of your firm's engagement and any Form E or asset schedule available. We will send our criteria and application form separately. Nothing in this email should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 6597,
+  "input_tokens": 1506,
+  "output_tokens": 445,
+  "cost_usd": 0.018655,
+  "prompt_hash": "17a4acbef08ed08b",
+  "cached_at": "2026-10-08T18:44:09.618Z"
+}

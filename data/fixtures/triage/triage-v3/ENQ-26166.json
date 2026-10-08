@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 30000,
+    "security_gbp": 858500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Crossley Solicitors LLP",
+    "stage": "Pre-grant; inheritance tax due before grant of probate can issue",
+    "summary": "A solicitor administering an illiquid Harrogate estate valued at around £858,500 enquires about borrowing £30,000 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry about a probate loan in connection with the Harrogate estate. We have noted the gross estate value of approximately £858,500, that it consists largely of the deceased's property, and the £30,000 sought towards the inheritance tax liability. To take this further we would need details of the deceased and the executors, confirmation of your firm's instruction and client identification, a breakdown of estate assets and liabilities with supporting valuations, the IHT400 or draft computation and the HMRC payment deadline, plus confirmation of any existing charges over the property. Once we have those documents a member of the team will review the enquiry and come back to you."
+  },
+  "latency_ms": 6781,
+  "input_tokens": 1475,
+  "output_tokens": 426,
+  "cost_usd": 0.018025,
+  "prompt_hash": "24f2ee6309a58f75",
+  "cached_at": "2026-10-08T18:43:19.636Z"
+}

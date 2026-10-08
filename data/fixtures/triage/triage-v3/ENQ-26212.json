@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 88000,
+    "security_gbp": 717000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Novak & Zielinski Solicitors",
+    "stage": "Pre-grant; IHT to be paid before grant application",
+    "summary": "A private client solicitor acting for executors enquires about an £88,000 probate loan to pay inheritance tax on a £717,000 estate before applying for the grant, which is expected within 16 weeks.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry regarding a probate loan for the executors you act for. We have noted the estate value of £717,000 and the £88,000 requested towards the inheritance tax liability. To take this further we would need confirmation of the jurisdiction in which the estate is being administered, a breakdown of the estate assets and any liabilities, confirmation of the executors' details and identification, the IHT payment deadline, and details of any other borrowing or charges against estate assets. Once we have those we will review the enquiry and come back to you."
+  },
+  "latency_ms": 6691,
+  "input_tokens": 1482,
+  "output_tokens": 408,
+  "cost_usd": 0.01761,
+  "prompt_hash": "b90efa9ef7a98f66",
+  "cached_at": "2026-10-08T18:40:02.249Z"
+}

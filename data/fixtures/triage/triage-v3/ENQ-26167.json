@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 26000,
+    "security_gbp": 589500,
+    "hearing_in_days": 18,
+    "has_solicitor": true,
+    "solicitor_firm": "Lindqvist Hollis Legal",
+    "stage": "Financial remedy proceedings, FDR listed",
+    "summary": "A solicitor enquires about funding of approximately £26,000 for his client's costs to conclusion in financial remedy proceedings at the Central Family Court, where matrimonial assets are around £589,500 and an FDR is listed for 26 September.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To take this further we would need confirmation of your client's identity and address details, a breakdown of the estimated costs to conclusion, and documentation evidencing the matrimonial assets, including the family home and the two buy-to-let properties with any charges against them. It would also help to have details of the current stage of proceedings, the Form E disclosure if available, and confirmation of the FDR listing. A member of our team will review the information and come back to you with any further questions. Nothing in this message constitutes an offer of funding or legal advice."
+  },
+  "latency_ms": 6723,
+  "input_tokens": 1526,
+  "output_tokens": 401,
+  "cost_usd": 0.017655,
+  "prompt_hash": "6e4191601614eaa8",
+  "cached_at": "2026-10-08T18:42:56.779Z"
+}

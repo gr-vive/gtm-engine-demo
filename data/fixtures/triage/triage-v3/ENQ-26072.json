@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 36500,
+    "security_gbp": 19500,
+    "hearing_in_days": 62,
+    "has_solicitor": true,
+    "solicitor_firm": "Calloway & Inglewood Solicitors LLP",
+    "stage": "Financial remedy proceedings, approaching final hearing",
+    "summary": "A family solicitor seeks £36,500 to fund a client's financial remedy case at the Family Court sitting at Cardiff, where the only asset is a flat with around £19,500 equity and a final hearing is listed for 2 November 2026.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To progress our review we would be grateful for confirmation of your client's details, a breakdown of the costs to final hearing, and documentary evidence of the property valuation and outstanding mortgage or charges. It would also help to have details of the other liabilities referred to and any disclosure filed in the proceedings to date. Once we have reviewed the above, a member of the team will come back to you. Nothing in this message should be taken as an indication of whether funding can be offered."
+  },
+  "latency_ms": 6266,
+  "input_tokens": 1491,
+  "output_tokens": 418,
+  "cost_usd": 0.017905,
+  "prompt_hash": "983b54e69af76b88",
+  "cached_at": "2026-10-08T18:42:07.059Z"
+}

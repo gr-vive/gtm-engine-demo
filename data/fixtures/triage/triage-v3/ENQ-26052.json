@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 58000,
+    "security_gbp": 520000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Ellery Law",
+    "stage": "Pre-grant; grant of probate expected within 13 weeks, property to be sold",
+    "summary": "A solicitor acting for executors of a £520k Reading estate enquires about a £58,000 probate loan to cover professional fees and tax pending sale of the property.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors. We have noted the estate value of £520,000, the £58,000 requested for professional fees and tax, and that the grant is expected within approximately 13 weeks. To take this further we would need confirmation of the executors' details and their consent, a breakdown of the estate assets and liabilities (including the property valuation and any existing charges), details of the inheritance tax position and any payment deadline, and confirmation of your firm's role and engagement. Please also let us know of any other beneficiaries' interests or disputes affecting the estate. A member of the team will review the information once received and come back to you."
+  },
+  "latency_ms": 6713,
+  "input_tokens": 1458,
+  "output_tokens": 453,
+  "cost_usd": 0.018615,
+  "prompt_hash": "fe3ecba03858aca6",
+  "cached_at": "2026-10-08T18:39:02.078Z"
+}

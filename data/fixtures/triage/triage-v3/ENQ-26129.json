@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 72500,
+    "security_gbp": 486000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Ormsby & Co",
+    "stage": "Divorce proceedings, funding sought for counsel and forensic accountant",
+    "summary": "A private client solicitor enquires on behalf of a wife in divorce proceedings about borrowing £72,500 for counsel, a forensic accountant and legal costs, against roughly £486,000 of assets in dispute.",
+    "confidence": 0.85,
+    "draft_reply": "Thank you for your enquiry on behalf of your client. We have noted the £72,500 sought and the approximately £486,000 of assets in dispute comprising property and pensions. To take this further we would need confirmation of the jurisdiction and court handling the proceedings, the current stage and any listed hearing dates, a breakdown of the costs to be funded, and details of the assets offered as security together with any existing charges. Please also confirm your client's details and your firm's engagement. We will send our criteria and application form and come back to you once we have reviewed the information provided."
+  },
+  "latency_ms": 6736,
+  "input_tokens": 1465,
+  "output_tokens": 408,
+  "cost_usd": 0.017525,
+  "prompt_hash": "034fae2efa2ff5ae",
+  "cached_at": "2026-10-08T18:40:08.987Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 101000,
+    "security_gbp": 544500,
+    "hearing_in_days": 101,
+    "has_solicitor": true,
+    "solicitor_firm": "Yilmaz Legal",
+    "stage": "Financial remedy proceedings, next hearing listed",
+    "summary": "A solicitor at Yilmaz Legal enquires about a £101,000 litigation loan for the respondent in divorce financial remedy proceedings where around £544,500 of property and pensions are in dispute, with a hearing at Bristol Family Court on 2 January.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry regarding funding for your client's financial remedy proceedings. We have noted the figures you provided, the Bristol Family Court hearing date and that Yilmaz Legal is instructed. To take this further we would need your client's details and confirmation of their role in the proceedings, a breakdown of the assets in dispute with supporting evidence, details of any existing charges or competing claims over those assets, and a costs estimate to conclusion. We will send our criteria and application form, and a colleague will review the enquiry once that information is received."
+  },
+  "latency_ms": 6668,
+  "input_tokens": 1487,
+  "output_tokens": 445,
+  "cost_usd": 0.01856,
+  "prompt_hash": "e35aa8c8afdaadb9",
+  "cached_at": "2026-10-08T18:44:25.290Z"
+}

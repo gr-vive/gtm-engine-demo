@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 3500,
+    "security_gbp": 175500,
+    "hearing_in_days": 37,
+    "has_solicitor": true,
+    "solicitor_firm": "Patel & Bramwell Legal",
+    "stage": "Children and finance proceedings with a hearing listed at the Family Court sitting at Cardiff",
+    "summary": "A solicitor asks whether a £3,500 loan for a counsel's fee in a children and finance matter, with about £175,500 of assets in dispute and a hearing on 8 October, meets the minimum loan size.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To take this further we will need confirmation of the client's details and consent, the nature and current stage of the proceedings, a breakdown of the costs the funding would cover, and evidence of the assets in dispute and any existing charges over them. Please also confirm the date and type of the listed hearing and whether any other funding is in place. Once we have those details a member of the team will review the enquiry and come back to you. Nothing in this message should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 7498,
+  "input_tokens": 1471,
+  "output_tokens": 424,
+  "cost_usd": 0.017955,
+  "prompt_hash": "11a58340b34b4b39",
+  "cached_at": "2026-10-08T18:42:00.791Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": null,
+    "security_gbp": 776000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Kowalski Legal",
+    "stage": "Early stage matrimonial proceedings, costs not yet estimated",
+    "summary": "A solicitor at Kowalski Legal is making a preliminary enquiry about funding for a client's matrimonial proceedings involving assets of around £776,000, with no loan amount yet identified.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry about potential funding for your client's matrimonial matter. To consider it further we would need the amount of funding sought, a costs estimate or schedule for the work proposed, details of the assets in dispute and how they are held, the jurisdiction and court dealing with the proceedings, the stage reached and any listed hearing dates, and your client's details for identity and conflict checks. We would also need confirmation of your firm's involvement and the basis on which costs will be billed. Once we have those we can review the enquiry and come back to you with any further questions."
+  },
+  "latency_ms": 8034,
+  "input_tokens": 1453,
+  "output_tokens": 412,
+  "cost_usd": 0.017565,
+  "prompt_hash": "49e67ed6c8ee7ddf",
+  "cached_at": "2026-10-08T18:43:12.854Z"
+}

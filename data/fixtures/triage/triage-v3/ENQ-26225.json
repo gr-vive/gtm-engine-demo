@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": null,
+    "security_gbp": 466500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Varga & Dlamini Law",
+    "stage": "Initial enquiry; IHT computation not yet finalised",
+    "summary": "A solicitor acting for executors of an estate worth around £466,500 is asking about criteria and pricing for borrowing against the estate property to pay inheritance tax and fees, with no loan amount yet specified.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors. So that we can consider it properly, we would need the amount the executors expect to borrow once the IHT computation is available, confirmation of the jurisdiction in which the estate is being administered, and details of the estate assets including the property to be charged. It would also help to know the stage of the administration, whether a grant has been applied for or issued, and any relevant HMRC deadlines. Once we have those details we will come back to you with our criteria and next steps."
+  },
+  "latency_ms": 7101,
+  "input_tokens": 1479,
+  "output_tokens": 353,
+  "cost_usd": 0.01622,
+  "prompt_hash": "a792096275c66e1a",
+  "cached_at": "2026-10-08T18:39:09.807Z"
+}

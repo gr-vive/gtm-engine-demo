@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 4000,
+    "security_gbp": 193500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Thackeray & Whitlock Legal",
+    "stage": "Upcoming hearing in children and finance proceedings",
+    "summary": "A solicitor asks whether a £4,000 loan to cover a single counsel's fee in a children and finance matter at the Family Court at Leeds, with around £193,500 of assets in dispute, meets the minimum loan size.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To consider it further we would need the date of the forthcoming hearing, confirmation of the stage of the financial remedy proceedings, and details of the assets in dispute and how they are held. It would also help to have the client's details and confirmation of your firm's instruction. Once we have those, a member of the team will come back to you."
+  },
+  "latency_ms": 6592,
+  "input_tokens": 1465,
+  "output_tokens": 335,
+  "cost_usd": 0.0157,
+  "prompt_hash": "cb934374f73e842b",
+  "cached_at": "2026-10-08T18:43:48.094Z"
+}

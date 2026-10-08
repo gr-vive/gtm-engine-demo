@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 34000,
+    "security_gbp": 830000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Underhill & Netherby Legal",
+    "stage": "Pre-grant; inheritance tax due before grant of probate issued",
+    "summary": "An executor of his late aunt's estate, mostly a Cheltenham house worth about £830,000 with little cash, asks to borrow around £34,000 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry and for the background on your late aunt's estate. To take this further we will need a copy of the will and confirmation of your appointment as executor, the estate's asset and liability schedule including the Cheltenham property valuation, and the IHT calculation or HMRC figures showing the amount due. It would also help to have written confirmation from Underhill & Netherby Legal that they are instructed, along with their contact details, and proof of your identity and address. Please also let us know of any deadline you are working to, as none was mentioned. Once we have these we will review the matter and come back to you."
+  },
+  "latency_ms": 6684,
+  "input_tokens": 1490,
+  "output_tokens": 402,
+  "cost_usd": 0.0175,
+  "prompt_hash": "4f16354610f48746",
+  "cached_at": "2026-10-08T18:39:35.666Z"
+}

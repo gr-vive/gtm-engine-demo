@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 24000,
+    "security_gbp": 397000,
+    "hearing_in_days": 8,
+    "has_solicitor": true,
+    "solicitor_firm": "Xu Family Law",
+    "stage": "Divorce proceedings, next hearing listed at Central Family Court",
+    "summary": "A solicitor at Xu Family Law enquires about a litigation loan of around £24,000 for her client, the applicant in divorce proceedings with roughly £397,000 of assets in dispute and a hearing on 14 September at the Central Family Court.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To take this further we would need the client's name and contact details, confirmation of the proceedings and the court reference, a breakdown of the £24,000 sought (counsel, forensic accountant and your own costs), and supporting detail on the assets in dispute including the property and pension values and any existing charges or encumbrances. It would also help to have the date and nature of the hearing listed on 14 September and your firm's client care details. We will send our criteria and application form separately. Nothing in this email should be taken as any indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 7169,
+  "input_tokens": 1501,
+  "output_tokens": 435,
+  "cost_usd": 0.01838,
+  "prompt_hash": "52ec3d1109f46596",
+  "cached_at": "2026-10-08T18:42:42.768Z"
+}

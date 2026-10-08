@@ -15,12 +15,15 @@
 
 const config = require('../../lib/config');
 
-const RULES_VERSION = 'rules-v2';
+// v3 (2026-10-08): R01 infers jurisdiction from the instructed firm when the text
+// does not state it. Shadow mode on rules-v2 showed 46 of 240 cases where the model
+// correctly reported "not stated" and people proceeded because they knew the firm.
+const RULES_VERSION = 'rules-v3';
 const ROUTES = ['family_team', 'probate_team', 'decline', 'needs_more_info'];
 
 /**
  * @param {object} x extracted fields (see extract.js for the schema)
- * @param {object} ctx { firmLookup(name) -> firm | null }
+ * @param {object} ctx { firmLookup(name) -> firm | null }  firm has { firm_id, name, on_panel, jurisdiction }
  */
 function applyRules(x, ctx = {}) {
   const fired = [];
@@ -31,14 +34,24 @@ function applyRules(x, ctx = {}) {
   let priority = 'normal';
   const fire = (rule, outcome, detail) => fired.push({ rule, outcome, detail });
 
-  // R01 jurisdiction: we lend in England and Wales only.
-  if (x.jurisdiction === 'England and Wales') fire('R01_jurisdiction', 'pass', x.jurisdiction);
-  else if (!x.jurisdiction || x.jurisdiction === 'unclear') {
+  // The firm, if the model named one and we know it. Used by R01 and R08.
+  const firm = x.has_solicitor && x.solicitor_firm && ctx.firmLookup ? ctx.firmLookup(x.solicitor_firm) : null;
+
+  // R01 jurisdiction: we lend in England and Wales only. If the text does not say,
+  // a known firm's jurisdiction stands in; an unknown firm means we have to ask.
+  let jurisdiction = x.jurisdiction;
+  let inferred = false;
+  if ((!jurisdiction || jurisdiction === 'unclear') && firm && firm.jurisdiction) {
+    jurisdiction = firm.jurisdiction;
+    inferred = true;
+  }
+  if (jurisdiction === 'England and Wales') fire('R01_jurisdiction', inferred ? 'pass_inferred_from_firm' : 'pass', inferred ? `${firm.name} is in ${jurisdiction}` : jurisdiction);
+  else if (!jurisdiction || jurisdiction === 'unclear') {
     more = more || 'jurisdiction_unclear';
-    fire('R01_jurisdiction', 'needs_more_info', 'jurisdiction not stated');
+    fire('R01_jurisdiction', 'needs_more_info', 'jurisdiction not stated and firm not known');
   } else {
     decline = 'outside_jurisdiction';
-    fire('R01_jurisdiction', 'decline', x.jurisdiction);
+    fire('R01_jurisdiction', 'decline', inferred ? `${firm.name} is in ${jurisdiction}` : jurisdiction);
   }
 
   // R02 product: family law or probate; anything else is outside our products.
@@ -102,9 +115,7 @@ function applyRules(x, ctx = {}) {
   } else fire('R07_urgency', 'normal', x.hearing_in_days == null ? 'no hearing date' : `hearing in ${x.hearing_in_days} days`);
 
   // R08 panel: known referral partners are fast-tracked; unknown firms need onboarding.
-  let firm = null;
   if (x.has_solicitor && x.solicitor_firm && ctx.firmLookup) {
-    firm = ctx.firmLookup(x.solicitor_firm);
     if (firm && firm.on_panel) fire('R08_panel', 'fast_track', firm.name);
     else if (firm) fire('R08_panel', 'known_firm', firm.name);
     else {

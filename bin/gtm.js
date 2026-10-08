@@ -126,5 +126,5 @@ async function main() {
 main().catch((err) => {
   ui.fail(err.message);
   if (process.env.GTM_DEBUG) console.error(err.stack);
-  process.exit(1);
+  process.exitCode = 1; // let open sockets drain instead of process.exit()
 });

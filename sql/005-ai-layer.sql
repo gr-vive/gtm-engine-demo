@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS ai_decisions (
   provider        TEXT NOT NULL,                -- anthropic | fixture | mock
   model           TEXT NOT NULL,
   prompt_version  TEXT NOT NULL,
+  rules_version   TEXT NOT NULL,                -- a rule change re-evaluates cached readings for free
   prompt_hash     TEXT NOT NULL,
   extracted_json  TEXT NOT NULL,                -- what the model read out of the text
   rules_json      TEXT NOT NULL,                -- which coded rules fired and the arithmetic they did

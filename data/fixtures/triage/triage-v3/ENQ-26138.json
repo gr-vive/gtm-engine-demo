@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 70000,
+    "security_gbp": 449500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Fenwick Legal",
+    "stage": "Pre-grant; inheritance tax due before grant can issue",
+    "summary": "A solicitor acting for the executors of an illiquid Reading estate worth about £449,500 enquires about borrowing £70,000 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry regarding a probate loan for the executors of the Reading estate. We have noted the approximate estate value of £449,500 and the £70,000 sought in respect of inheritance tax prior to the grant. To take this further we would need details of the estate's composition and any liabilities, confirmation of the executors' identities and their consent, the date by which the inheritance tax falls due, and confirmation of your firm's role in the administration. A member of our team will review the enquiry and come back to you with any further questions."
+  },
+  "latency_ms": 5210,
+  "input_tokens": 1453,
+  "output_tokens": 390,
+  "cost_usd": 0.017015,
+  "prompt_hash": "7c21c929010d3b3a",
+  "cached_at": "2026-10-08T18:43:10.029Z"
+}

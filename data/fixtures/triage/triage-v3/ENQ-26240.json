@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 26500,
+    "security_gbp": 390000,
+    "hearing_in_days": 68,
+    "has_solicitor": true,
+    "solicitor_firm": "Thackeray & Vance & Co",
+    "stage": "Divorce proceedings, acting for respondent, next hearing listed",
+    "summary": "A solicitor at Thackeray & Vance & Co enquires about a £26,500 litigation loan for the respondent in a divorce with around £390k of assets in dispute, ahead of a hearing at the Family Court at Birmingham on 16 November.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have logged. We have noted the £26,500 requested, assets in dispute of approximately £390,000 and the hearing listed at the Family Court at Birmingham on 16 November. To take this further we would need your client's full name and contact details, confirmation of the stage of proceedings and case number, a breakdown of the costs to be funded, details of the property and pension assets and any existing charges, and confirmation of your firm's engagement. We will send our criteria and application form separately, and a member of the team will be in touch once we have reviewed the information provided."
+  },
+  "latency_ms": 6606,
+  "input_tokens": 1505,
+  "output_tokens": 450,
+  "cost_usd": 0.018775,
+  "prompt_hash": "c7741c816a940f2b",
+  "cached_at": "2026-10-08T18:42:56.663Z"
+}

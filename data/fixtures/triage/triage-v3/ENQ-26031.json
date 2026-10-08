@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 29500,
+    "security_gbp": 446500,
+    "hearing_in_days": 25,
+    "has_solicitor": true,
+    "solicitor_firm": "Thackeray Wexford Law",
+    "stage": "First appointment in financial remedy proceedings",
+    "summary": "A solicitor seeks around £29,500 to fund her client's financial remedy proceedings at the Family Court at Leeds, where matrimonial assets are said to be about £446,500.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and passed to our underwriting team. To take this further we would need confirmation of your client's identity and address, details of the matrimonial assets and how they are held and valued, and the current position on disclosure (including Form E if available). We would also appreciate a costs estimate broken down by stage, confirmation of the first appointment listing, and details of any other funding available to your client. Please note this is an acknowledgement only and does not constitute an offer or any indication of terms. We will come back to you once we have reviewed the information provided."
+  },
+  "latency_ms": 5625,
+  "input_tokens": 1525,
+  "output_tokens": 390,
+  "cost_usd": 0.017375,
+  "prompt_hash": "3ae9bf31dc30fe42",
+  "cached_at": "2026-10-08T18:44:38.086Z"
+}

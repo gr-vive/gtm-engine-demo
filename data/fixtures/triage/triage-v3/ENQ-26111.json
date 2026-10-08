@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "Scotland",
+    "requested_gbp": 31500,
+    "security_gbp": 315000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Buchanan & Stewart Solicitors",
+    "stage": "Financial provision action proceeding to proof at the Court of Session",
+    "summary": "A solicitor acting for the pursuer in a Court of Session financial provision action asks whether funding of £31,500 is available in Scotland, with matrimonial property of around £315,000.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry and for the clear summary of the matter. So that we can consider it properly, we would be grateful for confirmation of the jurisdiction in which the proceedings are raised and the nature of the matrimonial property said to be in dispute, together with any supporting valuations. It would also help to have details of your client, the anticipated cost schedule to proof, and any dates already fixed in the action. Please note we are unable to comment on whether funding is available or on any terms at this stage. A member of our team will come back to you once the information above has been received and reviewed."
+  },
+  "latency_ms": 8335,
+  "input_tokens": 1464,
+  "output_tokens": 412,
+  "cost_usd": 0.01762,
+  "prompt_hash": "a82dbe426d495ae0",
+  "cached_at": "2026-10-08T18:45:38.437Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 12000,
+    "security_gbp": 201000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Fairweather & Jensen Legal",
+    "stage": "Ongoing financial remedy proceedings, pre-settlement or trial",
+    "summary": "A solicitor enquires about £12,000 of funding for a client's representation in ongoing financial remedy proceedings where the matrimonial pot is around £201,000 and the other spouse controls the liquid assets.",
+    "confidence": 0.85,
+    "draft_reply": "Thank you for your enquiry regarding funding for your client's financial remedy proceedings. We have noted the £12,000 requested and the matrimonial assets of approximately £201,000. To take this further we would need confirmation of the jurisdiction and court dealing with the matter, the next hearing date, details of the composition of the assets in dispute and your client's interest in them, a costs estimate through to conclusion, and your client's details for identity and conflict checks. We will review the information once received and come back to you; nothing in this message should be taken as an offer or indication of terms."
+  },
+  "latency_ms": 6622,
+  "input_tokens": 1489,
+  "output_tokens": 399,
+  "cost_usd": 0.01742,
+  "prompt_hash": "6b2f133b53a651c9",
+  "cached_at": "2026-10-08T18:39:51.720Z"
+}

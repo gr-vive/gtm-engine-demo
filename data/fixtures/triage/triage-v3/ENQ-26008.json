@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "Scotland",
+    "requested_gbp": 35500,
+    "security_gbp": 355000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Lennox & Fraser Solicitors",
+    "stage": "Financial provision action proceeding to proof",
+    "summary": "An Edinburgh solicitor asks whether funding of £35,500 is available for a client's financial provision action at the Court of Session, where matrimonial property is around £355k.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry and for the details of your client's financial provision action. To consider it further we would need confirmation of the jurisdiction in which the proceedings are raised, as our funding is for matters in England and Wales. We would also need details of the matrimonial property and how it is held, any dates fixed for proof or other hearings, and a costs estimate through to conclusion. Once we have reviewed what you send, a member of the team will come back to you."
+  },
+  "latency_ms": 5656,
+  "input_tokens": 1460,
+  "output_tokens": 326,
+  "cost_usd": 0.01545,
+  "prompt_hash": "dd4c5bac94ef37d0",
+  "cached_at": "2026-10-08T18:44:16.147Z"
+}

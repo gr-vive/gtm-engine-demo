@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 762000,
+    "security_gbp": 6879000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Mensah Legal",
+    "stage": "Estate administration, inheritance tax due before assets can be realised",
+    "summary": "A solicitor acting for executors asks whether Lodestar could fund a £762,000 inheritance tax bill on an estate of roughly £6,879,000 made up largely of commercial property and a farm.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry about an inheritance tax facility for this estate. To take this further we would need confirmation of the jurisdiction in which the estate is being administered, the date by which the IHT payment falls due, and details of the grant of probate status. It would also help to have a breakdown of the estate assets and any existing charges over the commercial property and farm, together with executor details and your firm's client care confirmation. We will review the information once received and come back to you; nothing in this email should be taken as an offer or an indication of terms. Please do let us know if any deadlines are approaching so we can note them on file."
+  },
+  "latency_ms": 7163,
+  "input_tokens": 1458,
+  "output_tokens": 408,
+  "cost_usd": 0.01749,
+  "prompt_hash": "153642672949e77f",
+  "cached_at": "2026-10-08T18:43:27.034Z"
+}

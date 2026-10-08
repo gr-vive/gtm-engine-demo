@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 35000,
+    "security_gbp": 1131000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Calloway & Quarrie Family Law",
+    "stage": "Pre-grant; IHT payable before application for grant of probate",
+    "summary": "A solicitor acting for executors enquires about a £35,000 probate loan to pay inheritance tax on an estate valued at about £1,131,000 ahead of applying for the grant, which is expected within about nine weeks.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To progress our review, we would be grateful for confirmation of the jurisdiction in which the estate is being administered, a breakdown of the estate assets and any liabilities, and the calculated inheritance tax figure with the relevant payment deadline. It would also help to have confirmation of the executors' details and your firm's engagement, together with any valuations available for the property and portfolio. Once we have these, a member of the team will review the enquiry and come back to you. Nothing in this message should be taken as an indication of whether funding is available or on what terms."
+  },
+  "latency_ms": 8368,
+  "input_tokens": 1484,
+  "output_tokens": 454,
+  "cost_usd": 0.01877,
+  "prompt_hash": "f9299c3b45f875a0",
+  "cached_at": "2026-10-08T18:45:21.608Z"
+}

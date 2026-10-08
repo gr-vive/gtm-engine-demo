@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 4000,
+    "security_gbp": 184000,
+    "hearing_in_days": 23,
+    "has_solicitor": true,
+    "solicitor_firm": "Wexford & Co",
+    "stage": "Children and finance proceedings with hearing listed",
+    "summary": "A solicitor at Wexford & Co asks whether a £4,000 loan to cover a counsel's fee is above the minimum, for a client in children and finance proceedings at the Family Court at Manchester with around £184,000 of assets in dispute and a hearing on 23 September 2026.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To take this further we will need the client's full name and contact details, confirmation of the nature and value of the assets in dispute and how they are held, the stage and hearing details of the proceedings, and an outline of the costs to be funded. Details of your firm's involvement and any existing charges or claims over the assets would also help. We cannot comment on minimum amounts or any other terms at this stage, but a member of the team will review the information and come back to you."
+  },
+  "latency_ms": 7069,
+  "input_tokens": 1458,
+  "output_tokens": 398,
+  "cost_usd": 0.01724,
+  "prompt_hash": "de4e4cb1f8f4f29c",
+  "cached_at": "2026-10-08T18:42:00.361Z"
+}

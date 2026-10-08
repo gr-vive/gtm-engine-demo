@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 32000,
+    "security_gbp": 470000,
+    "hearing_in_days": null,
+    "has_solicitor": false,
+    "solicitor_firm": null,
+    "stage": "Divorce, currently litigant in person",
+    "summary": "Oliver is self-representing in a divorce and asks to borrow about £32,000 to instruct representation, with around £470,000 of matrimonial assets (house and pension) in dispute.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry and for setting out your situation. Before we can consider it further, we would need a few more details: confirmation of where the proceedings are taking place, the name of any solicitor you intend to instruct (or whether you are still choosing one), the current stage of the proceedings and any upcoming hearing dates, and supporting information on the assets in dispute such as the property and pension values. It would also help to know whether a financial remedy application has been issued. Once we have that information, a member of our team will review your enquiry and come back to you."
+  },
+  "latency_ms": 5325,
+  "input_tokens": 1417,
+  "output_tokens": 357,
+  "cost_usd": 0.01601,
+  "prompt_hash": "ba2b767aa0f9dd94",
+  "cached_at": "2026-10-08T18:43:25.196Z"
+}

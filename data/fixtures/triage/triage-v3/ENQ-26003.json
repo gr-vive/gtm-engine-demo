@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 59000,
+    "security_gbp": 554500,
+    "hearing_in_days": 15,
+    "has_solicitor": true,
+    "solicitor_firm": "Greaves Solicitors",
+    "stage": "Estate administration; property awaiting sale, IHT due",
+    "summary": "A private client solicitor acting for executors of a £554,500 illiquid Reading estate enquires about £59,000 to cover professional fees and inheritance tax ahead of an HMRC deadline of 1 September while the house is sold.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To consider the matter further we would need confirmation of the executors' details and grant status, a breakdown of the estate's assets and liabilities, the IHT computation or HMRC correspondence, and details of the property being sold including any existing charges. We would also be grateful for your firm's client care details and confirmation that all executors consent to the application. Nothing in this email should be taken as an offer, an indication of terms, or any assurance as to the outcome of an application. A member of our team will be in touch once we have reviewed the information provided."
+  },
+  "latency_ms": 6866,
+  "input_tokens": 1473,
+  "output_tokens": 410,
+  "cost_usd": 0.017615,
+  "prompt_hash": "fccdecc9994ee67a",
+  "cached_at": "2026-10-08T18:39:43.765Z"
+}

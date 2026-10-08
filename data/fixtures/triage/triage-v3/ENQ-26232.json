@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 16500,
+    "security_gbp": 85000,
+    "hearing_in_days": 27,
+    "has_solicitor": true,
+    "solicitor_firm": "Danvers & Gallagher Family Law",
+    "stage": "Financial remedy proceedings, final hearing listed; costs estimated to FDR",
+    "summary": "A family solicitor asks whether Lodestar could fund approximately £16,500 of costs for her client, the husband in financial remedy proceedings at the Central Family Court, where the matrimonial assets are around £85,000 and a final hearing is listed for 14 October 2026.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry about funding for your client's financial remedy proceedings. We have logged the details you provided, including the estimated costs of £16,500, the approximate £85,000 of matrimonial assets and the hearing listed for 14 October. To take this further we would need confirmation of your client's identity and address, a breakdown of the costs estimate and your firm's engagement terms, details and valuations of the family home and buy-to-let properties together with any existing charges over them, and confirmation of the current procedural position including whether an FDR has been listed. A member of the team will review the enquiry and come back to you; nothing in this message should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 7284,
+  "input_tokens": 1519,
+  "output_tokens": 476,
+  "cost_usd": 0.019495,
+  "prompt_hash": "1ac366102494534e",
+  "cached_at": "2026-10-08T18:43:48.787Z"
+}

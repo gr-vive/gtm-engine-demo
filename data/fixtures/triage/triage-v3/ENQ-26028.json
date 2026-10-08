@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 21000,
+    "security_gbp": 696000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Lockwood & Ueda Legal",
+    "stage": "Before grant of probate; inheritance tax due",
+    "summary": "An executor seeks around £21,000 to pay inheritance tax on his late father's estate, mainly a Guildford house valued at about £696,000, before the grant of probate can be issued.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry about funding the inheritance tax on your late father's estate. We have noted that the estate is principally a property in Guildford valued at around £696,000, with limited cash, and that you are seeking approximately £21,000. To take this further we would need confirmation of your appointment as executor, a copy of the will, the death certificate, a breakdown of the estate's assets and liabilities, the property valuation and details of any mortgage or charge, plus the IHT figures and your solicitor's contact details at Lockwood & Ueda Legal. Please also let us know if there is a date by which the tax must be paid. Once we have those documents a member of the team will review the enquiry and come back to you."
+  },
+  "latency_ms": 6831,
+  "input_tokens": 1491,
+  "output_tokens": 423,
+  "cost_usd": 0.01803,
+  "prompt_hash": "f40fe66571fb7f50",
+  "cached_at": "2026-10-08T18:41:42.366Z"
+}

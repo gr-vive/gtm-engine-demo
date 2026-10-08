@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 107000,
+    "security_gbp": 692000,
+    "hearing_in_days": 61,
+    "has_solicitor": true,
+    "solicitor_firm": "Whitlock & Dlamini & Co",
+    "stage": "Estate administration, property awaiting sale",
+    "summary": "A solicitor acting for executors of a £692,000 Bath estate, mostly the deceased's home, asks to borrow £107,000 for professional fees and inheritance tax due on 10 October while the house is sold.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry about a Probate Loan for the estate in Bath. We have noted the gross estate value of around £692,000, the £107,000 requested, and the tax deadline of 10 October. To take this further we would need confirmation of the grant of probate position, a breakdown of the estate's assets and liabilities, details of any charges over the property, the executors' names and identification, and marketing or valuation evidence for the property. Once we have those we will review the enquiry and come back to you."
+  },
+  "latency_ms": 6502,
+  "input_tokens": 1482,
+  "output_tokens": 377,
+  "cost_usd": 0.016835,
+  "prompt_hash": "dd6e26e73d4d995a",
+  "cached_at": "2026-10-08T18:38:18.000Z"
+}

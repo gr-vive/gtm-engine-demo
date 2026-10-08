@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 818500,
+    "security_gbp": 2856500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Gallagher & Walsh Solicitors",
+    "stage": "Estate administration, IHT due before assets can be realised",
+    "summary": "A solicitor acting for executors of an estate valued at about £2,856,500 asks whether a facility of £818,500 could be considered to meet an inheritance tax bill ahead of realising commercial property and farm assets.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry regarding an inheritance tax facility for this estate. To take it further we would need confirmation of the jurisdiction of the estate, details of the grant of probate status, a breakdown of the estate assets and any existing charges over the commercial property and farm, and the relevant IHT payment deadline. Confirmation of the executors' details and your firm's client care arrangements would also help. Once we have those we will review the enquiry and come back to you. Nothing in this email constitutes an offer of finance or an indication of terms."
+  },
+  "latency_ms": 6163,
+  "input_tokens": 1465,
+  "output_tokens": 376,
+  "cost_usd": 0.016725,
+  "prompt_hash": "90063801db581da4",
+  "cached_at": "2026-10-08T18:44:58.136Z"
+}

@@ -50,6 +50,18 @@ test('probate above the maximum goes to a person, not to decline', () => {
   assert.equal(r.reason, 'above_maximum_refer_to_credit');
 });
 
+test('an unstated jurisdiction is taken from a known firm (rules-v3), but an unknown firm still means asking', () => {
+  const firmLookup = (name) => (name === 'Hartley & Finch Solicitors' ? { firm_id: 'f1', name, on_panel: 0, jurisdiction: 'England and Wales' } : null);
+  const known = applyRules({ ...base, jurisdiction: 'unclear' }, { firmLookup });
+  assert.equal(known.route, 'family_team');
+  assert.ok(known.fired.some((f) => f.rule === 'R01_jurisdiction' && f.outcome === 'pass_inferred_from_firm'));
+  const unknown = applyRules({ ...base, jurisdiction: 'unclear', solicitor_firm: 'Nobody & Co' }, { firmLookup });
+  assert.equal(unknown.route, 'needs_more_info');
+  assert.equal(unknown.reason, 'jurisdiction_unclear');
+  const scottish = applyRules({ ...base, jurisdiction: 'unclear', solicitor_firm: 'Macrae & Reid' }, { firmLookup: () => ({ firm_id: 'f2', name: 'Macrae & Reid', on_panel: 0, jurisdiction: 'Scotland' }) });
+  assert.equal(scottish.route, 'decline');
+});
+
 test('every fired rule is reported for the audit log', () => {
   const r = applyRules(base);
   assert.ok(r.fired.length >= 7);

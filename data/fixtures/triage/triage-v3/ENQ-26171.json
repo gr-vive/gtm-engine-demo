@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 37000,
+    "security_gbp": 1039000,
+    "hearing_in_days": 114,
+    "has_solicitor": true,
+    "solicitor_firm": "Hollis & Hollis Legal",
+    "stage": "Financial remedy proceedings, FDR listed",
+    "summary": "A solicitor acting for the wife in financial remedy proceedings at the Central Family Court enquires about borrowing around £37,000 for costs to final hearing, against matrimonial assets of about £1,039,000.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry, which we have received and passed to our assessment team. To take this further we will need written confirmation of your client's identity and address, details of the matrimonial assets and any charges or mortgages over them, and a costs estimate broken down by stage through to final hearing. It would also help to have a short case summary, confirmation of the position on any existing legal services payment orders, and your firm's client care and fee arrangements. Nothing in this message constitutes an offer of funding or any indication of terms. We will come back to you once the information above has been reviewed."
+  },
+  "latency_ms": 6915,
+  "input_tokens": 1510,
+  "output_tokens": 435,
+  "cost_usd": 0.018425,
+  "prompt_hash": "45b8d600d377fb40",
+  "cached_at": "2026-10-08T18:44:32.460Z"
+}

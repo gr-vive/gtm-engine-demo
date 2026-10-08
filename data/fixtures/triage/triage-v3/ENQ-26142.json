@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 4000,
+    "security_gbp": 103000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Oakes Law",
+    "stage": "upcoming hearing in children and finance proceedings",
+    "summary": "A solicitor at Oakes Law asks whether £4,000 for a counsel's fee in a children and finance matter at the Family Court at Manchester, with around £103,000 of assets in dispute, meets the minimum loan size.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To take this further we would need the date of the upcoming hearing, confirmation of the stage of the financial remedy proceedings, and details of the assets in dispute including their nature and any existing charges. It would also help to have client details and confirmation of your firm's involvement. We will come back to you once our team has reviewed the information provided."
+  },
+  "latency_ms": 5247,
+  "input_tokens": 1460,
+  "output_tokens": 326,
+  "cost_usd": 0.01545,
+  "prompt_hash": "082e5bdcc7164bee",
+  "cached_at": "2026-10-08T18:41:50.932Z"
+}

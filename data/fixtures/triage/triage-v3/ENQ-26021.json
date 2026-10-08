@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 50000,
+    "security_gbp": 395000,
+    "hearing_in_days": 35,
+    "has_solicitor": true,
+    "solicitor_firm": "Netherby Law",
+    "stage": "Estate administration; property awaiting sale, IHT due",
+    "summary": "A solicitor acting for executors of an illiquid Chester estate of about £395,000 asks about borrowing £50,000 to cover inheritance tax and professional fees ahead of an HMRC deadline of 22 October 2026.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors; we have logged it for review. To take matters forward we would need confirmation of the executors' details and authority, a copy of the grant of probate or its current status, a breakdown of the estate's assets and liabilities including the property address and any valuation, and details of the inheritance tax figure and HMRC deadline. It would also help to have an estimate of the professional fees to be funded and confirmation of the marketing or sale position of the property. Once we have reviewed the information, a member of our team will come back to you. Nothing in this message constitutes an offer or an indication that funding will be available."
+  },
+  "latency_ms": 6380,
+  "input_tokens": 1470,
+  "output_tokens": 426,
+  "cost_usd": 0.018,
+  "prompt_hash": "4f302549eabc7979",
+  "cached_at": "2026-10-08T18:43:55.169Z"
+}

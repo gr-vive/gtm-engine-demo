@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 71000,
+    "security_gbp": 278000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Chaudhry Law",
+    "stage": "Divorce proceedings, acting for the respondent",
+    "summary": "A solicitor at Chaudhry Law enquires about a £71,000 litigation loan to fund counsel, a forensic accountant and her firm's costs for the respondent in a divorce where around £278,000 of property and pensions are in dispute.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To take this further we would need confirmation of the jurisdiction and the court handling the proceedings, the stage reached and any listed hearing dates, and details of the assets in dispute including how the property and pension values have been evidenced. It would also help to have your client's details for identity checks and a breakdown of the £71,000 sought. We will send our criteria and application form, and a member of the team will follow up once the above information is available. Please note that nothing in this message constitutes an offer of finance or any indication of terms."
+  },
+  "latency_ms": 6485,
+  "input_tokens": 1471,
+  "output_tokens": 411,
+  "cost_usd": 0.01763,
+  "prompt_hash": "f8e68afeac45f4a3",
+  "cached_at": "2026-10-08T18:42:14.995Z"
+}

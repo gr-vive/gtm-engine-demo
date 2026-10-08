@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 44500,
+    "security_gbp": 1071000,
+    "hearing_in_days": 81,
+    "has_solicitor": true,
+    "solicitor_firm": "Underhill & Co",
+    "stage": "Ongoing matrimonial proceedings, hearing listed, running to settlement or trial",
+    "summary": "A solicitor at Underhill & Co seeks £44,500 to fund their client's representation in ongoing matrimonial proceedings where around £1.071m is in dispute and a hearing is listed for 11 November.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry on behalf of your client. We have logged the details you provided, including the amount sought, the value of the assets in dispute and the hearing date in November. To progress matters we would need confirmation of the jurisdiction and court dealing with the proceedings, details of the assets in dispute and any existing charges over them, the stage reached and a costs estimate through to conclusion, together with client identification and your firm's engagement details. A member of the team will review the file and come back to you once we have had a chance to consider it. Please do send anything further you think may be relevant in the meantime."
+  },
+  "latency_ms": 18447,
+  "input_tokens": 1491,
+  "output_tokens": 441,
+  "cost_usd": 0.01848,
+  "prompt_hash": "da12b9f7626ff52f",
+  "cached_at": "2026-10-08T18:40:20.698Z"
+}

@@ -66,7 +66,7 @@ enquiry ─► extract.js (model reads; schema-constrained JSON; draft reply)
 
 Prompt text is versioned (`PROMPT_VERSION`) and hashed into every decision and audit row. The model call uses structured outputs (`output_config.format` with a JSON schema) and `effort: low`; if structured outputs are rejected the call is retried with a plain JSON instruction and the response parsed. A `refusal` stop reason raises; nothing is written as a decision.
 
-Provider resolution: `--live` or a key present → Anthropic (response cached to `data/fixtures/triage/<prompt_version>/<enquiry_id>.json`); otherwise fixture; otherwise the mock reader. The provider is recorded on every decision and shown on every table.
+Provider resolution: `--live` always calls Anthropic and refreshes the fixture (`data/fixtures/triage/<prompt_version>/<enquiry_id>.json`); the default `auto` uses a cached fixture when one exists, else a live call when a key is set, else the mock reader. The provider is recorded on every decision and shown on every table. Decisions carry both `prompt_version` and `rules_version`, so a rule change re-evaluates the cached readings for free; a prompt change re-reads.
 
 ## Integrations and the production shape
 
@@ -76,7 +76,8 @@ Provider resolution: `--live` or a key present → Anthropic (response cached to
 | Ad platforms | `ad_spend` rows | Google Ads and LinkedIn reporting APIs by campaign and week; invoices for events and tooling via a finance export |
 | Website and email | `touches` | GA4 / server-side event stream with a first-party anon id; sequencer click tokens; event check-in lists |
 | Identity | `identity_links` | form submits, click tokens, CRM email match, referral partner introductions |
-| Sources and enrichment | mocks with the same two-call shape | SRA register, Law Society, Companies House; a provider waterfall |
+| Sources | Companies House live (`lib/sources/companies-house.js`: advanced search by SIC 69102 and name, then active officers; Basic auth; 600 requests per 5 minutes); other sources mocked | add the SRA register and Law Society directory, event CSVs, a LinkedIn data provider |
+| Enrichment | mocks with the same two-call shape; real-register people are keyed by officer id and never given invented contact details | a provider waterfall |
 | Sequencer | mock | the marketer's tool; the engine pushes leads and reads statuses only |
 | Model | Anthropic SDK | same, with fixtures kept as a regression set and the shadow evaluation run every Friday |
 | Delivery | Slack webhooks | same; the weekly report also commits to the repo for history and to GitHub Pages for the dashboard |

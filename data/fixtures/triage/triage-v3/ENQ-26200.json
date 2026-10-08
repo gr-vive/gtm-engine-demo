@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 22500,
+    "security_gbp": 359000,
+    "hearing_in_days": 59,
+    "has_solicitor": true,
+    "solicitor_firm": "Dunmore Solicitors LLP",
+    "stage": "Pending grant of probate",
+    "summary": "A solicitor acting for executors of an illiquid Bath estate of about £359,000 seeks £22,500 to cover inheritance tax and fees ahead of an HMRC deadline on 14 October 2026.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry to Lodestar Legal Finance regarding a probate loan for the Bath estate. We have noted the approximate estate value of £359,000, the £22,500 requested for inheritance tax and costs, and the 14 October HMRC deadline. To progress our review, we would be grateful for details of the deceased, the executors and their consent, a breakdown of estate assets and liabilities (including any property and its title details), the IHT400 or draft figures, and confirmation of the current position on the grant application. Please also confirm your firm's contact and client details so we can carry out our standard checks. A member of our team will be in touch once we have had the opportunity to consider the information provided."
+  },
+  "latency_ms": 6420,
+  "input_tokens": 1489,
+  "output_tokens": 453,
+  "cost_usd": 0.01877,
+  "prompt_hash": "e52e29b3ac1415e5",
+  "cached_at": "2026-10-08T18:39:27.467Z"
+}

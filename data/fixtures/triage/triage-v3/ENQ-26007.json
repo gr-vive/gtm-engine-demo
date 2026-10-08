@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 26500,
+    "security_gbp": 627500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Danvers Partners",
+    "stage": "Pre-grant; inheritance tax due before grant can issue",
+    "summary": "A solicitor acting for executors of a £627,500 illiquid Chester estate enquires about borrowing £26,500 to pay inheritance tax before the grant issues.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry regarding funding for the inheritance tax liability on this estate. We have noted the estate value of approximately £627,500 and the £26,500 sought. To take this further we would need details of the estate's assets and liabilities, confirmation of the executors' identities and their consent, the date by which the tax is payable, and an indication of how and when the estate is expected to realise funds. Once we have received that information we will review the enquiry and come back to you."
+  },
+  "latency_ms": 4878,
+  "input_tokens": 1454,
+  "output_tokens": 349,
+  "cost_usd": 0.015995,
+  "prompt_hash": "435fdcb783ee3065",
+  "cached_at": "2026-10-08T18:39:18.393Z"
+}

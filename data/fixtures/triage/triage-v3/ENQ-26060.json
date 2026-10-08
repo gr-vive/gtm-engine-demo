@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 55500,
+    "security_gbp": 759000,
+    "hearing_in_days": 112,
+    "has_solicitor": true,
+    "solicitor_firm": "Dlamini Legal LLP",
+    "stage": "Divorce financial remedy proceedings, next hearing listed",
+    "summary": "A solicitor at Dlamini Legal LLP enquires about a £55,500 loan to fund counsel, a forensic accountant and firm costs for a client in divorce proceedings with around £759,000 of assets in dispute, with a hearing at the Family Court at Birmingham on 25 December.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have logged for review. To take it further we will need confirmation of your client's full name and contact details, details of the proceedings and case number, and a breakdown of the £55,500 sought. It would also help to have supporting information on the assets in dispute, including the property and pension figures and any existing charges, together with your firm's client care and costs information. We will also carry out our standard identity and conflict checks. A member of the team will be in touch once we have reviewed what you have sent."
+  },
+  "latency_ms": 11903,
+  "input_tokens": 1492,
+  "output_tokens": 444,
+  "cost_usd": 0.01856,
+  "prompt_hash": "9805824355f00baa",
+  "cached_at": "2026-10-08T18:42:28.279Z"
+}

@@ -17,6 +17,7 @@ GitHub Actions keeps `runs/` and `logs/` as artifacts for 30 days on every sched
 | Symptom | Likely cause | What the system does | What you do |
 |---|---|---|---|
 | `audience-daily` fails at `discover` | a source is down or changed its format | stage marked `failed`, manifest saved, nothing pushed | fix the connector, `gtm audience resume --run-id <id>`; the other stages run once discovery succeeds |
+| `discover` slow or 429 from Companies House | 600 requests per 5 minutes per key | the connector waits and retries three times, then fails the stage | lower `companiesPerQuery` / `officersPerCompany` in `discoverCompaniesHouse`, resume |
 | fails at `enrich` | provider outage or quota | stage `failed`; rows already enriched keep their data | resume; already-enriched rows are not re-billed. If the provider stays down, the fallback provider still runs |
 | fails at `push` | sequencer API down | stage `failed`; `pushed_at` untouched, so no lead is pushed twice | resume when it is back. The daily cap still applies to the retry |
 | the same person pushed twice | a new source spelled the email differently | dedup keys are lower-cased emails, else LinkedIn URLs | add the alias to `identity_links`-style normalisation in `profileKey`; suppress the duplicate in the registry |

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 81500,
+    "security_gbp": 462500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Ashcroft Legal LLP",
+    "stage": "Pre-grant of probate; inheritance tax payable before grant issued",
+    "summary": "An executor of his late father's estate, mostly a Harrogate property worth about £462,500, asks to borrow around £81,500 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry and for the background on your father's estate. To take this further we would need a copy of the will and confirmation of your appointment as executor, the draft estate accounts or schedule of assets and liabilities, a valuation of the Harrogate property, details of any mortgage or other charges on it, and the HMRC inheritance tax calculation together with any payment deadline. It would also help to have written confirmation from Ashcroft Legal LLP that they are instructed and can act on the estate's behalf, along with identification documents for you. Once we have those we can review the matter properly; I am not able to comment at this stage on whether funding is available or on any terms. Please send the documents by reply and we will come back to you."
+  },
+  "latency_ms": 6936,
+  "input_tokens": 1488,
+  "output_tokens": 457,
+  "cost_usd": 0.018865,
+  "prompt_hash": "5d0550c146040a6c",
+  "cached_at": "2026-10-08T18:40:57.161Z"
+}

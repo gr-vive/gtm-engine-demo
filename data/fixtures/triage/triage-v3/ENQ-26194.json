@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 84000,
+    "security_gbp": 713000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Aldous & Quinn Legal",
+    "stage": "Pre-grant; grant of probate expected within about 11 weeks, property to be sold",
+    "summary": "A solicitor acting for executors enquires about an £84,000 probate loan for professional fees and tax against an estate valued at £713,000 while the property is sold.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors. We have noted the estate value of £713,000, the £84,000 requested for professional fees and tax, and that the grant is expected in around eleven weeks. To progress the review we would need confirmation of the jurisdiction in which the estate is being administered, a breakdown of the estate assets and any liabilities, details of the inheritance tax position and any deadline, confirmation of the executors' identities and consent, and the marketing or sale position for the property. Please also confirm your firm's role and contact details for correspondence. We will come back to you once a colleague has reviewed the information provided."
+  },
+  "latency_ms": 5967,
+  "input_tokens": 1461,
+  "output_tokens": 457,
+  "cost_usd": 0.01873,
+  "prompt_hash": "61889ab2d61d29c0",
+  "cached_at": "2026-10-08T18:45:36.070Z"
+}

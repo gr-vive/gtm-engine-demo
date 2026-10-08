@@ -177,15 +177,20 @@ function viaMock(enquiry) {
 /**
  * @param {object} enquiry row from `enquiries`
  * @param {object} opts { mode: 'auto' | 'live' | 'fixtures' | 'mock' }
+ *   auto     cached fixture if one exists, else a live call if a key is set, else the mock
+ *   live     always call the model (and refresh the fixture); fails loudly without a key
+ *   fixtures only cached responses; fails loudly on a miss
+ *   mock     the regex reader, for offline tests of the rules and the pipeline
  */
 async function extractEnquiry(enquiry, opts = {}) {
   const mode = opts.mode || 'auto';
   let out = null;
-  if (mode === 'live' || (mode === 'auto' && claude.hasKey())) {
+  if (mode === 'live') {
     if (!claude.hasKey()) throw new Error('--live requested but ANTHROPIC_API_KEY is not set');
     out = await viaAnthropic(enquiry);
   } else if (mode !== 'mock') {
     out = viaFixture(enquiry);
+    if (!out && mode === 'auto' && claude.hasKey()) out = await viaAnthropic(enquiry);
   }
   if (!out) {
     if (mode === 'fixtures') throw new Error(`no fixture for ${enquiry.enquiry_id}; run with --live once to create it`);

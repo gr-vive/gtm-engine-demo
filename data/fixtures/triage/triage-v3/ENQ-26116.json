@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 71000,
+    "security_gbp": 617500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Lindqvist Hollis Legal",
+    "stage": "Pre-grant; IHT payable before grant of probate can be applied for",
+    "summary": "A private client solicitor seeks £71,000 to fund inheritance tax on a largely illiquid Reading estate valued at about £617,500 so the executors can apply for the grant.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry about funding the inheritance tax liability on this estate, which we have passed to our underwriting team for review. To take it further we would need confirmation of the executors' details and their consent, a copy of the will and any grant application documents, the IHT account or computation showing the £71,000 figure, and evidence of the property's value and title, along with details of any mortgage or other charges. It would also help to know the date by which the IHT payment is required and whether any other estate assets could be realised. We cannot comment on terms or availability until that information has been reviewed. Please reply with the documents and we will come back to you."
+  },
+  "latency_ms": 7065,
+  "input_tokens": 1487,
+  "output_tokens": 400,
+  "cost_usd": 0.017435,
+  "prompt_hash": "85ec37db613ae25c",
+  "cached_at": "2026-10-08T18:43:04.818Z"
+}

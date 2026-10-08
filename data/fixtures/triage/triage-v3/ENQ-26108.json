@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 46500,
+    "security_gbp": 397000,
+    "hearing_in_days": 58,
+    "has_solicitor": true,
+    "solicitor_firm": "Rahman Family Law",
+    "stage": "Divorce financial remedy proceedings, next hearing listed",
+    "summary": "A partner at Rahman Family Law enquires about a £46,500 litigation loan for a husband in divorce proceedings with around £397k of assets in dispute, ahead of a hearing at the Family Court at Leeds on 13 October 2026.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have logged for review. To take this further we would need the client's full name and contact details, confirmation of their instruction of your firm, a breakdown of the £46,500 sought and the expected costs to conclusion, and supporting detail on the assets in dispute including the property address, equity position and pension values. It would also help to have confirmation of the hearing type listed for 13 October and the current procedural stage. Nothing in this email constitutes an offer of funding or any indication of terms. Once we have the above, a member of the team will come back to you."
+  },
+  "latency_ms": 7254,
+  "input_tokens": 1488,
+  "output_tokens": 436,
+  "cost_usd": 0.01834,
+  "prompt_hash": "0d6f68175fac1c08",
+  "cached_at": "2026-10-08T18:39:28.302Z"
+}

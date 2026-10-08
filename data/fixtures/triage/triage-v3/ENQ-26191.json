@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 17000,
+    "security_gbp": 276500,
+    "hearing_in_days": null,
+    "has_solicitor": false,
+    "solicitor_firm": null,
+    "stage": "Litigant in person, divorce ongoing",
+    "summary": "Tom is self-representing in a divorce and asks to borrow about £17,000 to instruct representation, with around £276,500 of assets (house and pension) in dispute.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for getting in touch with Lodestar Legal Finance about funding for your divorce. To take your enquiry further we would need a few more details: where the proceedings are taking place, the current stage and any upcoming hearing dates, and the name of any solicitor you intend to instruct. It would also help to have a breakdown of the assets in dispute and how they are held. Once we have that information a member of the team will review your enquiry and come back to you. Nothing in this message should be taken as an offer of funding or as legal advice."
+  },
+  "latency_ms": 6466,
+  "input_tokens": 1416,
+  "output_tokens": 360,
+  "cost_usd": 0.01608,
+  "prompt_hash": "6a2555d376141c13",
+  "cached_at": "2026-10-08T18:40:08.718Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 35500,
+    "security_gbp": 32000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Hawtrey Solicitors",
+    "stage": "Financial remedy proceedings, pre-final hearing",
+    "summary": "A solicitor at Hawtrey Solicitors asks for £35,500 to fund her client's financial remedy case at the Family Court sitting at Cardiff, where the only asset is a flat with around £32,000 equity.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry about funding for your client's financial remedy proceedings in Cardiff. We have noted the £35,500 requested and the flat with approximately £32,000 of equity as the main asset. To take this further we would need the date of the next hearing and any listed final hearing date, a costs estimate or budget to that stage, confirmation of your client's details and the full asset and liability position including the mortgage and any charges on the flat, and details of the other party's position. Once we have those we will review the enquiry and come back to you; nothing in this email should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 6025,
+  "input_tokens": 1463,
+  "output_tokens": 423,
+  "cost_usd": 0.01789,
+  "prompt_hash": "fe065482ae3d6344",
+  "cached_at": "2026-10-08T18:38:36.275Z"
+}

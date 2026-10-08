@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 64000,
+    "security_gbp": 992000,
+    "hearing_in_days": 112,
+    "has_solicitor": true,
+    "solicitor_firm": "Ormsby Solicitors LLP",
+    "stage": "Before grant of probate; inheritance tax due",
+    "summary": "A solicitor acting for executors of an illiquid Chester estate of about £992,000 enquires about borrowing £64,000 to pay inheritance tax due by 16 January 2027 so the grant can issue.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry regarding the Chester estate, which we have received and logged. To progress matters we would need confirmation of the executors' details and their authority, a breakdown of the estate's assets and liabilities (including the illiquid elements and any existing charges), and the IHT400 or equivalent computation supporting the £64,000 figure. It would also help to have confirmation of the expected timetable for the grant and for realising estate assets, together with your firm's client due diligence. Once we have those documents a member of our team will review the enquiry and come back to you. Nothing in this email constitutes an offer of finance or any commitment on terms."
+  },
+  "latency_ms": 7070,
+  "input_tokens": 1479,
+  "output_tokens": 459,
+  "cost_usd": 0.01887,
+  "prompt_hash": "615a946620712eef",
+  "cached_at": "2026-10-08T18:44:39.531Z"
+}

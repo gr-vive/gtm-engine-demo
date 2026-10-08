@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS audience_candidates (
   person_name     TEXT,
   email           TEXT,
   linkedin_url    TEXT,
+  external_id     TEXT,                         -- the source's own id (e.g. a Companies House officer id)
   raw_json        TEXT,
   status          TEXT NOT NULL DEFAULT 'new',  -- new | duplicate | enriched | qualified | disqualified | pushed
   reason          TEXT,

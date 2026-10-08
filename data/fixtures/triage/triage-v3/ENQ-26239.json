@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 93000,
+    "security_gbp": 3064000,
+    "hearing_in_days": 56,
+    "has_solicitor": true,
+    "solicitor_firm": "Achebe Legal",
+    "stage": "Financial remedy proceedings, next hearing listed",
+    "summary": "A solicitor at Achebe Legal enquires about a £93,000 litigation loan for a husband in financial remedy proceedings where around £3,064,000 of assets are in dispute, with a hearing at the Central Family Court on 30 October.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry on behalf of your client regarding funding for financial remedy proceedings. We have noted the £93,000 requested, the approximately £3,064,000 of assets in dispute, and the hearing listed at the Central Family Court on 30 October. To take this further we would need your client's name and contact details, a breakdown of the costs to be funded, details of the assets in dispute including any existing charges or encumbrances, confirmation of the procedural stage and any orders made to date, and your firm's client care and conflict details. We will send our criteria and application form for you to review. Once we have that information a member of the team will come back to you."
+  },
+  "latency_ms": 6771,
+  "input_tokens": 1483,
+  "output_tokens": 432,
+  "cost_usd": 0.018215,
+  "prompt_hash": "e8672905ac100e7e",
+  "cached_at": "2026-10-08T18:42:23.148Z"
+}

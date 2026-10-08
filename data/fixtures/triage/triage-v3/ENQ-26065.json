@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 25500,
+    "security_gbp": 310000,
+    "hearing_in_days": 82,
+    "has_solicitor": true,
+    "solicitor_firm": "Jessop & Underhill Legal LLP",
+    "stage": "Divorce financial remedy proceedings, next hearing listed",
+    "summary": "A family solicitor enquires about a £25,500 litigation loan for her client, the wife in a divorce with roughly £310,000 of assets in dispute, ahead of a hearing at the Family Court at Manchester on 17 November.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. So that we can consider it properly, we will send over our criteria and application form, and it would help to have your client's details and confirmation of her instructions, a breakdown of the costs sought, and information on the assets in dispute including property titles, valuations and any pension figures. Please also confirm the stage of proceedings, the nature of the hearing listed on 17 November, and any existing charges or other funding in place. A member of our team will be in touch once we have reviewed the information provided. Nothing in this message should be taken as any indication of whether funding will be offered or on what terms."
+  },
+  "latency_ms": 7001,
+  "input_tokens": 1505,
+  "output_tokens": 462,
+  "cost_usd": 0.019075,
+  "prompt_hash": "90a26be417fc6117",
+  "cached_at": "2026-10-08T18:40:57.226Z"
+}

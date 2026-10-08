@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 32000,
+    "security_gbp": 451000,
+    "hearing_in_days": 7,
+    "has_solicitor": false,
+    "solicitor_firm": null,
+    "stage": "Litigant in person, hearing upcoming in divorce proceedings",
+    "summary": "Daniel, currently unrepresented in his divorce, asks to borrow about £32,000 to fund representation where the disputed assets (house and pension) are around £451,000, with a hearing on 12 September 2026.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry and for setting out your situation so clearly. Before we can look at this further, we would need a few more details: confirmation of where the proceedings are taking place and the court involved, the name of any solicitor you intend to instruct (we are generally only able to work alongside an instructed solicitor), and the nature of the hearing listed for 12 September. It would also help to have more detail on the assets in dispute, including how they are held and any existing charges or mortgages. Please send these over at your convenience and we will review your enquiry; nothing in this message should be taken as an indication that funding will be available or on what terms."
+  },
+  "latency_ms": 6697,
+  "input_tokens": 1429,
+  "output_tokens": 411,
+  "cost_usd": 0.01742,
+  "prompt_hash": "4bf6a43affce66d9",
+  "cached_at": "2026-10-08T18:42:34.978Z"
+}

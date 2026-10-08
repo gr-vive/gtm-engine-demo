@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 89500,
+    "security_gbp": 462500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Fischer & Achebe Legal",
+    "stage": "Before grant of probate; inheritance tax due",
+    "summary": "An executor of her late aunt's largely illiquid Winchester estate (around £462,500) asks to borrow about £89,500 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry about funding the inheritance tax on your late aunt's estate. We have noted the estate value of around £462,500, the figure of approximately £89,500 for inheritance tax, and that Fischer & Achebe Legal are instructed. To take this further we would need a copy of the will and your confirmation as named executor, the estate accounts or a schedule of assets and liabilities, a valuation or marketing information for the Winchester property, any HMRC correspondence or IHT400 figures including the payment deadline, and your solicitor's written confirmation that they are acting. Once we have those documents a member of our team will review the enquiry and come back to you; nothing in this email should be taken as an offer or an indication of terms."
+  },
+  "latency_ms": 6266,
+  "input_tokens": 1491,
+  "output_tokens": 453,
+  "cost_usd": 0.01878,
+  "prompt_hash": "7efc388510c53a0a",
+  "cached_at": "2026-10-08T18:44:01.544Z"
+}

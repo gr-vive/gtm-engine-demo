@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 710500,
+    "security_gbp": 4333000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Szabo Family Law",
+    "stage": "Estate administration, IHT due before assets realised",
+    "summary": "A solicitor asks whether Lodestar could provide a £710,500 facility to cover inheritance tax on an estate of about £4,333,000 made up largely of commercial property and a farm.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry about a facility to meet the inheritance tax liability on this estate. To take it further we would need confirmation of the jurisdiction in which the estate is being administered, details of the executors and whether a grant has been applied for or issued, and a breakdown and valuations of the estate assets and any existing charges over them. It would also help to have the date by which the inheritance tax payment is required and an estimate of the expected timescale for realising the property and farm assets. Once we have those details we can review the enquiry properly. Nothing in this message should be taken as an offer or an indication of terms."
+  },
+  "latency_ms": 6387,
+  "input_tokens": 1463,
+  "output_tokens": 375,
+  "cost_usd": 0.01669,
+  "prompt_hash": "8855bdbed8db12b0",
+  "cached_at": "2026-10-08T18:42:07.179Z"
+}

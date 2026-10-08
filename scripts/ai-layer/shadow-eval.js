@@ -70,7 +70,8 @@ function shadowEval({ quiet = false } = {}) {
   const result = { eval_id: evalId, n, route_agreement: routeAgree / n, product_agreement: productRows.length ? productAgree / productRows.length : null, amount_mape: mape, would_decline_wrongly: wouldDecline.length, would_proceed_wrongly: wouldProceed.length, confusion, flagged, cost_usd: cost, providers };
 
   if (!quiet) {
-    ui.section(`Shadow evaluation · ${n} enquiries · prompt ${config.PROMPT_VERSION} · reader ${Object.keys(providers).join('+')}`);
+    const rulesVersion = JSON.parse(rows[0].rules_json).version || '?';
+    ui.section(`Shadow evaluation · ${n} enquiries · ${config.PROMPT_VERSION} + ${rulesVersion} · reader ${Object.keys(providers).join('+')}`);
     ui.kv([
       ['route agreement', `${ui.pct(routeAgree / n)}  (${routeAgree}/${n})`],
       ['product agreement', productRows.length ? `${ui.pct(productAgree / productRows.length)}  (${productAgree}/${productRows.length})` : '—'],

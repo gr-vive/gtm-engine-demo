@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 26000,
+    "security_gbp": 34000,
+    "hearing_in_days": 88,
+    "has_solicitor": true,
+    "solicitor_firm": "Petrova Solicitors",
+    "stage": "Financial remedy proceedings ahead of final hearing",
+    "summary": "A solicitor seeks £26,000 to fund a client's financial remedy case at Bristol Family Court to a final hearing on 2 December, where the only asset is a flat with around £34,000 equity.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To progress our review we will need confirmation of the client's details, a breakdown of the costs the £26,000 is intended to cover, and evidence of the flat's valuation and outstanding mortgage or charges. It would also help to have details of the other liabilities you mention and the current procedural position, including any orders made to date. We will be in touch once the file has been reviewed; nothing in this message should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 5888,
+  "input_tokens": 1459,
+  "output_tokens": 409,
+  "cost_usd": 0.01752,
+  "prompt_hash": "a51b48c083a895cc",
+  "cached_at": "2026-10-08T18:42:41.488Z"
+}

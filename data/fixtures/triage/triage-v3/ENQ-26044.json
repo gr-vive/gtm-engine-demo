@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 20000,
+    "security_gbp": 803000,
+    "hearing_in_days": null,
+    "has_solicitor": false,
+    "solicitor_firm": null,
+    "stage": "Divorce ongoing, litigant in person",
+    "summary": "Elena, currently unrepresented in divorce proceedings, asks to borrow around £20,000 to instruct a solicitor, with matrimonial assets (house and pension) said to be worth about £803,000.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry about funding for your divorce. To take this further we would need some additional information: where the proceedings are taking place, details of any solicitor you intend to instruct, the stage of the case and any upcoming hearing dates, and more detail on the assets in dispute and how they are held. It would also help to know whether a financial remedy application has been issued. Once we have that, a member of the team will review your enquiry and come back to you."
+  },
+  "latency_ms": 6177,
+  "input_tokens": 1412,
+  "output_tokens": 321,
+  "cost_usd": 0.015085,
+  "prompt_hash": "b6a45701ac2f4b26",
+  "cached_at": "2026-10-08T18:40:45.131Z"
+}

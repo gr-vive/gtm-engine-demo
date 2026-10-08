@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 33500,
+    "security_gbp": 260000,
+    "hearing_in_days": 54,
+    "has_solicitor": true,
+    "solicitor_firm": "Okafor Family Law",
+    "stage": "Financial remedy proceedings, final hearing listed",
+    "summary": "A solicitor seeks around £33,500 to fund his client's costs to conclusion in financial remedy proceedings at the Family Court at Birmingham, where matrimonial assets are about £260,000 and a final hearing is listed for 14 October.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To take this further we would need confirmation of your client's identity and details, a breakdown of the estimated costs to conclusion, evidence of the matrimonial assets and their ownership, and confirmation of the current position in the proceedings including the hearing listing. It would also help to know what other funding sources, if any, have been explored. A member of our team will be in touch once we have reviewed the information provided. Nothing in this message should be taken as an indication of whether funding can be offered or on what terms."
+  },
+  "latency_ms": 5775,
+  "input_tokens": 1521,
+  "output_tokens": 426,
+  "cost_usd": 0.018255,
+  "prompt_hash": "4845529b5c41fb74",
+  "cached_at": "2026-10-08T18:40:01.333Z"
+}

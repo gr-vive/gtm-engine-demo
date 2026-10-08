@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 28500,
+    "security_gbp": 251500,
+    "hearing_in_days": 35,
+    "has_solicitor": true,
+    "solicitor_firm": "Danvers & Thackeray Law",
+    "stage": "Divorce financial remedy proceedings, next hearing listed",
+    "summary": "A solicitor at Danvers & Thackeray Law enquires about a £28,500 litigation loan for a wife in divorce proceedings with around £251,500 of assets in dispute, ahead of a hearing at the Family Court at Leeds on 25 September 2026.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of your client. We have noted the amount sought, the assets in dispute and the hearing date at the Family Court at Leeds. To take this further we would need your client's details and consent, confirmation of the stage of the financial remedy proceedings, a breakdown of the costs to be funded, and evidence of the nature and value of the assets in dispute, including any existing charges. We will send our criteria and application form and will come back to you once we have reviewed the information provided."
+  },
+  "latency_ms": 6182,
+  "input_tokens": 1497,
+  "output_tokens": 402,
+  "cost_usd": 0.017535,
+  "prompt_hash": "f4f37041da2e478b",
+  "cached_at": "2026-10-08T18:40:01.740Z"
+}

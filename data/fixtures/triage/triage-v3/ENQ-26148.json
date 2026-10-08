@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 67000,
+    "security_gbp": 673000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Lindqvist & Tremayne Legal",
+    "stage": "Pre-grant; inheritance tax payable before grant of probate",
+    "summary": "An executor of his late father's estate, mostly a Harrogate property worth about £673,000 with little cash, asks to borrow around £67,000 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for getting in touch with Lodestar Legal Finance about funding the inheritance tax on your late father's estate. We have noted the estate is principally a property in Harrogate valued at around £673,000, that you are seeking approximately £67,000, and that Lindqvist & Tremayne Legal are instructed. To take this further we would need a copy of the will and your confirmation of executor status, the draft estate accounts or schedule of assets and liabilities, the property valuation, the IHT calculation and any payment deadline, and details of any other debts or charges against the estate. We would also need your authority to correspond with your solicitors directly. Once we have those documents a member of the team will review the enquiry and come back to you; nothing in this message should be taken as an offer or an indication of terms."
+  },
+  "latency_ms": 7432,
+  "input_tokens": 1494,
+  "output_tokens": 480,
+  "cost_usd": 0.01947,
+  "prompt_hash": "3b2cca434b11fb3d",
+  "cached_at": "2026-10-08T18:45:30.100Z"
+}

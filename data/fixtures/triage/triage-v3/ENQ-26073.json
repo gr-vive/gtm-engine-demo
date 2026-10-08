@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 26500,
+    "security_gbp": 202000,
+    "hearing_in_days": 21,
+    "has_solicitor": true,
+    "solicitor_firm": "Szabo Solicitors LLP",
+    "stage": "Divorce financial remedy proceedings, next hearing listed",
+    "summary": "A solicitor enquires about a £26,500 loan to fund counsel, a forensic accountant and legal costs for a wife in divorce proceedings with around £202,000 of assets in dispute, with a hearing at the Family Court at Leeds on 12 October.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of your client; we have logged the details you provided, including the £26,500 requested and the assets in dispute of approximately £202,000. To take this further we will need your client's full name and contact details, confirmation of the proceedings and case number, a breakdown of the costs to be funded, and details of the property and pension assets including any existing charges or encumbrances. It would also help to have confirmation of the stage of proceedings and any Form E or asset schedule available. We will send our current criteria and application form separately. Nothing in this message should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 8128,
+  "input_tokens": 1486,
+  "output_tokens": 439,
+  "cost_usd": 0.018405,
+  "prompt_hash": "9577ca06e0f72d17",
+  "cached_at": "2026-10-08T18:44:18.621Z"
+}

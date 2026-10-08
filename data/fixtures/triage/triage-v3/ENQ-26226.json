@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 37000,
+    "security_gbp": 217000,
+    "hearing_in_days": 100,
+    "has_solicitor": true,
+    "solicitor_firm": "Sato & Co",
+    "stage": "Ongoing matrimonial proceedings, hearing listed, running to settlement or trial",
+    "summary": "A family solicitor at Sato & Co is asking for £37,000 to fund her client's representation as respondent in ongoing matrimonial proceedings where the matrimonial pot is around £217,000 and a hearing is listed for 18 November 2026.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To progress our review we would need confirmation of the jurisdiction and the court in which the proceedings are issued, the case stage and what the 18 November hearing is listed for, and a breakdown of the £37,000 sought. We would also need details of the assets said to make up the £217,000, including how they are held and what security might be available, together with your client's identification and a costs estimate through to conclusion. Once we have those we will come back to you with any further questions. Nothing in this message should be taken as an indication that funding will be offered or on what basis."
+  },
+  "latency_ms": 7486,
+  "input_tokens": 1489,
+  "output_tokens": 482,
+  "cost_usd": 0.019495,
+  "prompt_hash": "d5860b961d7ec49f",
+  "cached_at": "2026-10-08T18:38:30.247Z"
+}

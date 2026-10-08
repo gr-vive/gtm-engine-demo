@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 22000,
+    "security_gbp": 614000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Greaves & Prentice & Co",
+    "stage": "Pending grant of probate",
+    "summary": "A private client solicitor administering a £614,000 Harrogate estate, largely illiquid property, seeks £22,000 to cover inheritance tax and legal fees before the grant of probate is issued.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry about funding for the Harrogate estate. We have noted the gross estate value of approximately £614,000 and the £22,000 requested for inheritance tax and fees pending the grant. To take this further we would need details of the deceased, a breakdown of the estate's assets and liabilities, confirmation of the executors and whether any other charges exist over the property, plus the IHT payment deadline and any application reference. A member of the team will be in touch once we have reviewed the information provided."
+  },
+  "latency_ms": 5376,
+  "input_tokens": 1487,
+  "output_tokens": 362,
+  "cost_usd": 0.016485,
+  "prompt_hash": "f6ea8dd560d1efdb",
+  "cached_at": "2026-10-08T18:45:28.043Z"
+}

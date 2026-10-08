@@ -31,13 +31,57 @@ const TARGET_ROLES = new Set(['partner', 'head_of_department', 'solicitor']);
 
 const now = () => new Date().toISOString();
 const norm = (s) => String(s || '').trim().toLowerCase();
-const profileKey = (c) => (c.email ? norm(c.email) : c.linkedin_url ? norm(c.linkedin_url) : null);
+// email, else LinkedIn, else the source's own id (a real person we have not enriched yet)
+const profileKey = (c) => (c.email ? norm(c.email) : c.linkedin_url ? norm(c.linkedin_url) : c.external_id ? `ext:${c.external_id}` : null);
 
 // ---- discover -------------------------------------------------------------
 
-function discover(m, conn) {
+/** The live source: real solicitor firms and their officers from the Companies House register. */
+async function discoverCompaniesHouse(m, rng) {
+  const ch = require('../../lib/sources/companies-house');
+  if (!ch.enabled()) return [];
+  const firms = await ch.discoverLawFirms({ queries: ['family law', 'probate'], companiesPerQuery: 8, officersPerCompany: 3 });
+  const rows = [];
+  for (const { company, officers } of firms) {
+    for (const o of officers) {
+      rows.push({
+        candidate_id: rng.id('cnd', 10),
+        run_id: m.run_id,
+        source: 'companies_house',
+        firm_name: company.name,
+        website_domain: null, // the register has no website; enrichment would have to find it
+        person_name: `${o.first} ${o.last}`.trim(),
+        email: null,
+        linkedin_url: null,
+        external_id: o.officer_id || `${company.company_number}:${o.raw_name}`,
+        raw_json: JSON.stringify({
+          live: true,
+          title: o.role === 'director' ? 'Director' : /llp/.test(o.role) ? 'LLP Member' : o.role,
+          firm_id: null,
+          company_number: company.company_number,
+          company_url: company.url,
+          city: company.city,
+          region: company.region,
+          practice_areas: company.practice_areas,
+          jurisdiction: company.jurisdiction,
+          size_band: null,
+          on_panel: 0,
+          incorporated: company.incorporated,
+        }),
+        status: 'new',
+        reason: null,
+        fit_score: null,
+        updated_at: now(),
+      });
+    }
+  }
+  return rows;
+}
+
+async function discover(m, conn) {
   const daySeed = fnv1a(`${config.SEED}|${m.run_id.slice(0, 8)}`); // same day → same candidates; new day → new ones
   const rng = new Rng(daySeed);
+  const live = await discoverCompaniesHouse(m, rng);
   const firms = db.all(conn, "SELECT * FROM firms WHERE source <> 'inbound_form'");
   const contacts = db.all(conn, 'SELECT c.*, f.name AS firm_name, f.website_domain FROM contacts c JOIN firms f ON f.firm_id=c.firm_id');
   const FIRST = ['Priya', 'James', 'Amelia', 'Tom', 'Rachel', 'Daniel', 'Hannah', 'Oliver', 'Sophie', 'Ben', 'Fatima', 'Kwame', 'Elena', 'Marcus', 'Niamh', 'Arjun'];
@@ -45,7 +89,7 @@ function discover(m, conn) {
   const TITLES = ['Partner', 'Head of Family', 'Head of Private Client', 'Senior Associate', 'Solicitor', 'Paralegal', 'Practice Manager'];
 
   const sources = { sra_register: 18, law_society: 10, events: 8, linkedin: 9 };
-  const rows = [];
+  const rows = [...live];
   for (const [source, n] of Object.entries(sources)) {
     for (let i = 0; i < n; i++) {
       const existing = rng.chance(0.4) ? rng.pick(contacts) : null; // someone we already know (dedup must catch)
@@ -64,6 +108,7 @@ function discover(m, conn) {
         person_name: `${first} ${last}`,
         email,
         linkedin_url: linkedin,
+        external_id: null,
         raw_json: JSON.stringify({ title, firm_id: firm.firm_id, city: firm.city, practice_areas: firm.practice_areas, jurisdiction: firm.jurisdiction, size_band: firm.size_band, on_panel: firm.on_panel }),
         status: 'new',
         reason: null,
@@ -75,7 +120,7 @@ function discover(m, conn) {
   db.insertMany(conn, 'audience_candidates', rows);
   manifest.artifact(m, 'candidates.json', rows);
   const bySource = rows.reduce((a, r) => ((a[r.source] = (a[r.source] || 0) + 1), a), {});
-  return { discovered: rows.length, by_source: bySource };
+  return { discovered: rows.length, by_source: bySource, live_source: live.length ? 'companies_house' : null };
 }
 
 // ---- dedup ----------------------------------------------------------------
@@ -111,6 +156,14 @@ function enrich(m, conn) {
     const raw = JSON.parse(c.raw_json);
     const [first, last] = c.person_name.toLowerCase().split(' ');
     let provider = null;
+    if (raw.live) {
+      // A real person from a public register: the mock providers must not invent contact
+      // details. They stay keyed by the register id until a real enrichment provider runs.
+      raw.role_type = /llp|member|partner/i.test(raw.title) ? 'partner' : /director/i.test(raw.title) ? 'partner' : 'finance';
+      raw.practice_area = raw.practice_areas === 'mixed' ? 'mixed' : raw.practice_areas.split(',')[0];
+      upd.run('enriched', 'real_source_contact_data_pending', null, null, JSON.stringify(raw), now(), c.candidate_id);
+      continue;
+    }
     if (rng.chance(0.72)) provider = 'provider_a';
     else if (rng.chance(0.6)) provider = 'provider_b';
     if (provider) {
@@ -145,6 +198,9 @@ function scoreCandidate(raw) {
   if (['family', 'probate'].includes(raw.practice_area)) {
     score += 3;
     reasons.push(`practice:${raw.practice_area}`);
+  } else if (raw.practice_area === 'mixed') {
+    score += 2;
+    reasons.push('practice:law_firm_unspecified');
   }
   if (['6-20', '21-50', '51-200'].includes(raw.size_band)) {
     score += 1;
@@ -193,14 +249,23 @@ async function push(m, conn) {
   const rng = new Rng(fnv1a(`${m.run_id}|push`));
   // 1. make sure each qualified person exists as a contact (and firm) and in the registry
   const findFirm = conn.prepare('SELECT firm_id FROM firms WHERE firm_id = ?');
-  const findContact = conn.prepare('SELECT contact_id FROM contacts WHERE LOWER(email) = ? OR LOWER(linkedin_url) = ?');
+  const insFirm = conn.prepare('INSERT OR IGNORE INTO firms (firm_id, name, sra_number, city, region, jurisdiction, practice_areas, size_band, website_domain, on_panel, source, first_seen_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)');
+  const findContact = conn.prepare('SELECT contact_id FROM contacts WHERE (LOWER(email) = ? AND email IS NOT NULL) OR (LOWER(linkedin_url) = ? AND linkedin_url IS NOT NULL)');
   const insContact = conn.prepare('INSERT INTO contacts (contact_id, firm_id, first_name, last_name, title, role_type, practice_area, email, linkedin_url, source, first_seen_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
   const insReg = conn.prepare('INSERT OR IGNORE INTO audience_registry (profile_key, contact_id, firm_id, segment, fit_score, qualified_at, dedup_run_at) VALUES (?,?,?,?,?,?,?)');
   let added = 0;
+  let awaiting = 0;
   for (const c of rows) {
     const raw = JSON.parse(c.raw_json);
+    if (raw.live && raw.company_number && !raw.firm_id) {
+      // a real firm from the register becomes a firm row, keyed by its company number
+      raw.firm_id = `ch_${raw.company_number}`;
+      insFirm.run(raw.firm_id, c.firm_name, null, raw.city, raw.region, raw.jurisdiction, raw.practice_areas, raw.size_band, null, 0, 'companies_house', now());
+    }
     if (!findFirm.get(raw.firm_id)) continue;
     const key = profileKey(c);
+    if (!key) continue;
+    if (!c.email && !c.linkedin_url) awaiting++;
     let contact = findContact.get(norm(c.email), norm(c.linkedin_url));
     if (!contact) {
       const [first, last] = c.person_name.split(' ');
@@ -212,13 +277,15 @@ async function push(m, conn) {
     insReg.run(key, contact.contact_id, raw.firm_id, segment, c.fit_score, now(), now());
     added++;
   }
-  // 2. the cursor: next N eligible rows never pushed, best fit first
+  // 2. the cursor: next N eligible rows never pushed, best fit first.
+  //    Nobody without an email or LinkedIn URL is ever handed to a sequencer.
   const cap = config.AUDIENCE_DAILY_PUSH_CAP;
   const batch = db.all(
     conn,
     `SELECT r.profile_key, r.segment, r.fit_score, c.first_name, c.last_name, f.name AS firm
      FROM audience_registry r LEFT JOIN contacts c ON c.contact_id=r.contact_id LEFT JOIN firms f ON f.firm_id=r.firm_id
      WHERE r.pushed_at IS NULL AND r.suppressed = 0 AND r.fit_score >= ?
+       AND (c.email IS NOT NULL OR c.linkedin_url IS NOT NULL)
      ORDER BY r.fit_score DESC, r.qualified_at ASC LIMIT ?`,
     config.AUDIENCE_MIN_FIT_SCORE,
     cap,
@@ -227,10 +294,10 @@ async function push(m, conn) {
   const upd = conn.prepare('UPDATE audience_registry SET pushed_at=?, sequencer=?, sequencer_lead_id=? WHERE profile_key=?');
   for (const r of results) upd.run(now(), r.sequencer, r.sequencer_lead_id, r.profile_key);
   conn.prepare("UPDATE audience_candidates SET status='pushed', updated_at=? WHERE run_id=? AND status='qualified'").run(now(), m.run_id);
-  const remaining = db.scalar(conn, 'SELECT COUNT(*) FROM audience_registry WHERE pushed_at IS NULL AND suppressed=0 AND fit_score >= ?', config.AUDIENCE_MIN_FIT_SCORE);
+  const remaining = db.scalar(conn, `SELECT COUNT(*) FROM audience_registry r JOIN contacts c ON c.contact_id = r.contact_id WHERE r.pushed_at IS NULL AND r.suppressed=0 AND r.fit_score >= ? AND (c.email IS NOT NULL OR c.linkedin_url IS NOT NULL)`, config.AUDIENCE_MIN_FIT_SCORE);
   manifest.artifact(m, 'pushed.json', results);
   const bySeq = results.reduce((a, r) => ((a[r.sequencer] = (a[r.sequencer] || 0) + 1), a), {});
-  return { added_to_registry: added, pushed: results.length, daily_cap: cap, remaining_eligible: remaining, by_sequencer: bySeq };
+  return { added_to_registry: added, awaiting_contact_data: awaiting, pushed: results.length, daily_cap: cap, remaining_eligible: remaining, by_sequencer: bySeq };
 }
 
 // ---- runner ---------------------------------------------------------------
@@ -248,11 +315,11 @@ async function runPipeline({ runId, force = false, only = null, quiet = false } 
       if (quiet) continue;
       const met = r.metrics;
       const summary = {
-        discover: () => `${met.discovered} candidates from ${Object.entries(met.by_source).map(([k, v]) => `${k}×${v}`).join(', ')}`,
+        discover: () => `${met.discovered} candidates from ${Object.entries(met.by_source).map(([k, v]) => `${k}×${v}${k === met.live_source ? ' (live)' : ''}`).join(', ')}${met.live_source ? '' : ' · all sources mocked (set COMPANIES_HOUSE_API_KEY for a live one)'}`,
         dedup: () => `${met.duplicates} already known, ${met.carried_forward} carried forward`,
         enrich: () => `provider A ×${met.provider_a}, fallback B ×${met.provider_b}, no contact data ×${met.no_contact_data}${met.late_duplicates ? `, ${met.late_duplicates} turned out to be known` : ''}`,
         qualify: () => `${met.qualified} qualified (fit ≥ ${met.min_fit}), ${met.disqualified} disqualified`,
-        push: () => `${met.added_to_registry} added to registry · ${met.pushed} handed to sequencer (${Object.entries(met.by_sequencer).map(([k, v]) => `${k}×${v}`).join(', ') || 'none'}) · cap ${met.daily_cap} · ${met.remaining_eligible} still waiting`,
+        push: () => `${met.added_to_registry} added to registry${met.awaiting_contact_data ? ` (${met.awaiting_contact_data} real people awaiting contact data, never pushed without it)` : ''} · ${met.pushed} handed to sequencer (${Object.entries(met.by_sequencer).map(([k, v]) => `${k}×${v}`).join(', ') || 'none'}) · cap ${met.daily_cap} · ${met.remaining_eligible} still waiting`,
       }[stage]();
       r.skipped ? ui.info(`${stage}: skipped, already completed`) : ui.ok(`${stage}: ${summary}`);
     } catch (err) {

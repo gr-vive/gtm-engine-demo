@@ -44,7 +44,9 @@ Growth engine for a fictional UK specialist lender (Lodestar Legal Finance). Syn
 - **Add a channel:** add it to `LENDER.channels` in `lib/config.js`, give it spend and touches in `scripts/seed.js`, and a UTM shape in the `UTM` map.
 - **Add a rule:** edit `scripts/ai-layer/rules.js`, bump `RULES_VERSION`, add a test in `test/rules.test.js`.
 - **Change the prompt:** edit `systemPrompt()` in `scripts/ai-layer/extract.js`, bump `PROMPT_VERSION` in `lib/config.js`; old decisions stay comparable.
-- **Real model calls:** put `ANTHROPIC_API_KEY` in `.env`, run `node bin/gtm.js ai triage --live`; responses cache to `data/fixtures/`.
+- **Real model calls:** put `ANTHROPIC_API_KEY` in `.env`, run `node bin/gtm.js ai triage --live`; responses cache to `data/fixtures/`. Default `auto` mode uses fixtures first, so re-runs cost nothing.
+- **Real audience source:** put `COMPANIES_HOUSE_API_KEY` in `.env` (free key from the Companies House developer hub); `node bin/gtm.js audience run` then discovers real solicitor firms (SIC 69102) and officers. Connector: `lib/sources/companies-house.js`.
+- **Rule change:** bump `RULES_VERSION` in `scripts/ai-layer/rules.js`; triage re-evaluates every enquiry against the cached readings for free and `shadow_evals` keeps both results.
 
 ## Architecture
 

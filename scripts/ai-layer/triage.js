@@ -29,7 +29,7 @@ function audit(conn, row) {
 }
 
 function makeFirmLookup(conn) {
-  const firms = conn.prepare('SELECT firm_id, name, on_panel FROM firms').all();
+  const firms = conn.prepare('SELECT firm_id, name, on_panel, jurisdiction FROM firms').all();
   const norm = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
   const byName = new Map(firms.map((f) => [norm(f.name), f]));
   return (name) => byName.get(norm(name)) || null;
@@ -42,28 +42,40 @@ async function triage({ limit = 60, mode = 'auto', aiMode = config.AI_MODE, quie
 
   const pending = conn
     .prepare(`SELECT e.* FROM enquiries e
-              WHERE NOT EXISTS (SELECT 1 FROM ai_decisions d WHERE d.enquiry_id = e.enquiry_id AND d.prompt_version = ?)
+              WHERE NOT EXISTS (SELECT 1 FROM ai_decisions d WHERE d.enquiry_id = e.enquiry_id AND d.prompt_version = ? AND d.rules_version = ?)
               ORDER BY e.received_at ASC LIMIT ?`)
-    .all(config.PROMPT_VERSION, limit);
+    .all(config.PROMPT_VERSION, RULES_VERSION, limit);
 
   if (!quiet) {
     ui.section(`AI triage · ${aiMode} mode · run ${runId}`);
-    ui.step(`${pending.length} enquiries without a decision for prompt ${config.PROMPT_VERSION}`);
+    ui.step(`${pending.length} enquiries without a decision for ${config.PROMPT_VERSION} + ${RULES_VERSION}`);
   }
   audit(conn, { actor: 'system:triage', event: 'run_started', detail: { run_id: runId, ai_mode: aiMode, provider_mode: mode, n: pending.length, rules: RULES_VERSION } });
 
   const insertDecision = conn.prepare(`INSERT INTO ai_decisions
-    (decision_id, enquiry_id, run_id, mode, provider, model, prompt_version, prompt_hash, extracted_json, rules_json, route, product, max_loan_gbp, priority, confidence, draft_reply, latency_ms, input_tokens, output_tokens, cost_usd, created_at)
-    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
+    (decision_id, enquiry_id, run_id, mode, provider, model, prompt_version, rules_version, prompt_hash, extracted_json, rules_json, route, product, max_loan_gbp, priority, confidence, draft_reply, latency_ms, input_tokens, output_tokens, cost_usd, created_at)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`);
   const humanStmt = conn.prepare('SELECT route FROM human_decisions WHERE enquiry_id = ?');
 
   const rows = [];
   let cost = 0;
   const providers = {};
+  // The model reads several enquiries at once; everything after the read
+  // (rules, writes, audit rows) stays strictly ordered per enquiry.
+  const CONCURRENCY = 5;
+  const extracted = new Map();
+  for (let i = 0; i < pending.length; i += CONCURRENCY) {
+    const chunk = pending.slice(i, i + CONCURRENCY);
+    const results = await Promise.all(chunk.map((e) => extractEnquiry(e, { mode })));
+    chunk.forEach((e, k) => extracted.set(e.enquiry_id, results[k]));
+    if (!quiet && pending.length > CONCURRENCY && results.some((r) => r.provider === 'anthropic')) process.stdout.write(`\r    reading ${Math.min(i + CONCURRENCY, pending.length)}/${pending.length} with ${results[0].model}…`);
+  }
+  if (!quiet && pending.length > CONCURRENCY) process.stdout.write('\r' + ' '.repeat(70) + '\r');
+
   for (const e of pending) {
     audit(conn, { ts: e.received_at, actor: `system:intake:${e.channel}`, enquiry_id: e.enquiry_id, event: 'enquiry_received', detail: { from: e.from_email, subject: e.subject } });
 
-    const ex = await extractEnquiry(e, { mode });
+    const ex = extracted.get(e.enquiry_id);
     providers[ex.provider] = (providers[ex.provider] || 0) + 1;
     audit(conn, { actor: `model:${ex.model}`, enquiry_id: e.enquiry_id, event: 'fields_extracted', detail: { provider: ex.provider, extracted: ex.extracted, latency_ms: ex.latency_ms, tokens: [ex.input_tokens, ex.output_tokens] }, prompt_hash: ex.prompt_hash, model_version: ex.model });
 
@@ -72,7 +84,7 @@ async function triage({ limit = 60, mode = 'auto', aiMode = config.AI_MODE, quie
 
     const decisionId = `dec_${sha(`${runId}|${e.enquiry_id}`, 12)}`;
     insertDecision.run(
-      decisionId, e.enquiry_id, runId, aiMode, ex.provider, ex.model, ex.prompt_version, ex.prompt_hash,
+      decisionId, e.enquiry_id, runId, aiMode, ex.provider, ex.model, ex.prompt_version, RULES_VERSION, ex.prompt_hash,
       JSON.stringify(ex.extracted), JSON.stringify(rules), rules.route, rules.product, rules.max_loan_gbp, rules.priority,
       ex.extracted.confidence ?? null, ex.extracted.draft_reply || null, ex.latency_ms, ex.input_tokens, ex.output_tokens, ex.cost_usd, new Date().toISOString(),
     );

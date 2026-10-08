@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 667500,
+    "security_gbp": 5796500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Fischer Partners",
+    "stage": "Estate administration, IHT payable before assets can be realised",
+    "summary": "A partner at Fischer Partners asks whether Lodestar could provide a £667,500 facility to cover inheritance tax on an estate of around £5,796,500 consisting largely of commercial property and a farm.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry about a facility to meet the inheritance tax liability on this estate. To take it further we would need confirmation of the jurisdiction in which the estate is being administered, the names and contact details of the executors, and the date by which the IHT payment falls due. It would also help to see a breakdown of the estate assets and any existing charges over the commercial property and farm, together with details of grant of probate status. Once we have those details we will review the enquiry and come back to you. Nothing in this email should be taken as an offer of funding or an indication of terms."
+  },
+  "latency_ms": 7860,
+  "input_tokens": 1455,
+  "output_tokens": 411,
+  "cost_usd": 0.01755,
+  "prompt_hash": "a6632abd12cc0f56",
+  "cached_at": "2026-10-08T18:40:58.084Z"
+}

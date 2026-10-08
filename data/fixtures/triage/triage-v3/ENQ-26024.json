@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 33500,
+    "security_gbp": 274000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Zhang Solicitors LLP",
+    "stage": "Financial remedy proceedings, pre-FDR",
+    "summary": "A solicitor at Zhang Solicitors LLP seeks around £33,500 to fund her client's costs to FDR in financial remedy proceedings at the Family Court at Leeds, where matrimonial assets are about £274,000.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry, which we have received and passed to our underwriting team for review. To take this further we would be grateful for the date of the next hearing or FDR listing, a costs estimate broken down by stage, and details of your client's current means and any existing legal services payment orders. It would also help to have confirmation of the asset schedule, including the title position and any charges on the family home and the investments. We will come back to you once we have reviewed the information provided; nothing in this message constitutes an offer of funding or an indication of terms."
+  },
+  "latency_ms": 6739,
+  "input_tokens": 1515,
+  "output_tokens": 373,
+  "cost_usd": 0.0169,
+  "prompt_hash": "87049755a26987a2",
+  "cached_at": "2026-10-08T18:40:34.606Z"
+}

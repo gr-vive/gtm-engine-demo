@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 29500,
+    "security_gbp": 371000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Underhill Partners",
+    "stage": "Pre-grant; IHT must be paid before applying for grant",
+    "summary": "A private client solicitor acting for executors of a £371k Chester estate enquires about a £29,500 probate loan to pay the inheritance tax liability before the grant is applied for.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry regarding funding for the executors of this estate. We have noted the estate value of £371,000 and the requested £29,500 towards the inheritance tax liability ahead of the grant application. To take this further we would need confirmation of the executors' details and their consent, a breakdown of the estate assets and any liabilities, the IHT calculation or draft IHT400, details of the property and any existing charges, and the date by which the tax must be paid. Please also confirm your firm's details and who will be our point of contact. Once we have those documents a member of the team will review the enquiry and come back to you."
+  },
+  "latency_ms": 6920,
+  "input_tokens": 1471,
+  "output_tokens": 463,
+  "cost_usd": 0.01893,
+  "prompt_hash": "0ba5af7c2bf228bb",
+  "cached_at": "2026-10-08T18:44:25.543Z"
+}

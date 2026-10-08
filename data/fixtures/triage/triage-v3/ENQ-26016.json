@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 43500,
+    "security_gbp": 902500,
+    "hearing_in_days": 47,
+    "has_solicitor": true,
+    "solicitor_firm": "Thackeray & Novak Family Law",
+    "stage": "Pre-grant; inheritance tax due before grant of probate can issue",
+    "summary": "A solicitor acting for the executors of an illiquid Chester estate valued at about £902,500 enquires about borrowing £43,500 to pay inheritance tax due by 9 October 2026 so the grant can issue.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors; we have logged it for review by our underwriting team. To take matters forward we will need confirmation of the executors' details and their consent, a breakdown of the estate's assets and liabilities, and the HMRC computation supporting the £43,500 inheritance tax figure. It would also help to have confirmation of the grant application status and any expected timing for realising estate assets. Please also confirm your firm's details and who will act for the executors in the administration. Once we have reviewed the information, a member of the team will be in touch to discuss next steps."
+  },
+  "latency_ms": 7166,
+  "input_tokens": 1477,
+  "output_tokens": 434,
+  "cost_usd": 0.018235,
+  "prompt_hash": "fc9c9f6adf0e326a",
+  "cached_at": "2026-10-08T18:40:27.866Z"
+}

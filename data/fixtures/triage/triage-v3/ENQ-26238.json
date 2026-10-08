@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 50000,
+    "security_gbp": 490500,
+    "hearing_in_days": 27,
+    "has_solicitor": true,
+    "solicitor_firm": "Inglewood Solicitors",
+    "stage": "Estate administration, property not yet sold",
+    "summary": "A solicitor acting for executors of an illiquid Bath estate valued at around £490,500 enquires about borrowing £50,000 for professional fees and inheritance tax ahead of an HMRC deadline on 2 October 2026.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors. We have noted the estate value of approximately £490,500, the £50,000 requested, and the HMRC deadline you mention. To take this further we would need confirmation of the grant position, a breakdown of estate assets and liabilities, details of the property and its marketing or sale status, the identities of the executors and beneficiaries, and confirmation of any existing charges over estate assets. Once we have those documents a member of the team will review the enquiry and come back to you."
+  },
+  "latency_ms": 5934,
+  "input_tokens": 1470,
+  "output_tokens": 363,
+  "cost_usd": 0.016425,
+  "prompt_hash": "2b19d1a6ea32df85",
+  "cached_at": "2026-10-08T18:42:34.215Z"
+}

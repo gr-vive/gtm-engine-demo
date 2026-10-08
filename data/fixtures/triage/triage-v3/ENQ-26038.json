@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 93000,
+    "security_gbp": 761000,
+    "hearing_in_days": 81,
+    "has_solicitor": true,
+    "solicitor_firm": "Netherby & Pemberton Legal LLP",
+    "stage": "Pre-grant; IHT must be paid before applying for grant of probate",
+    "summary": "A solicitor instructed by executors of an illiquid Bath estate valued at around £761,000 enquires about borrowing £93,000 to pay inheritance tax before the grant, with an HMRC deadline of 13 December 2026.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors; we have logged the details you provided. To take this further we will need confirmation of the executors' identities and their authority to borrow, a copy of the will and the draft IHT account, a breakdown of the estate's assets and liabilities including any existing charges, and details of the property or other assets intended as security. Please also confirm whether a grant application has been prepared and whether any other funding is in place. We will review the matter once this information is received and come back to you with any further questions. Nothing in this message constitutes an offer of finance or legal advice."
+  },
+  "latency_ms": 6664,
+  "input_tokens": 1490,
+  "output_tokens": 450,
+  "cost_usd": 0.0187,
+  "prompt_hash": "14c7e3b86a62c0da",
+  "cached_at": "2026-10-08T18:44:32.208Z"
+}

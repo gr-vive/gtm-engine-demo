@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 59000,
+    "security_gbp": 555000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Thackeray & Varga Partners",
+    "stage": "Financial remedy proceedings ongoing at Central Family Court",
+    "summary": "A solicitor seeks approximately £59,000 to fund her client's costs to conclusion in financial remedy proceedings where matrimonial assets are around £555,000.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To progress our review we would need details of the next hearing date and the procedural timetable, a breakdown of the estimated costs to conclusion, and confirmation of the nature and ownership of the assets in dispute, including any existing charges on the family home and the buy-to-let properties. It would also help to have your client's details for identity and conflict checks, together with any Form E or asset schedule already prepared. Once we have these we will come back to you with our assessment. Nothing in this message should be taken as an offer or an indication of terms."
+  },
+  "latency_ms": 7209,
+  "input_tokens": 1510,
+  "output_tokens": 380,
+  "cost_usd": 0.01705,
+  "prompt_hash": "af18c0de261d8e02",
+  "cached_at": "2026-10-08T18:44:39.671Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 23000,
+    "security_gbp": 324500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Hartley Haddad Solicitors LLP",
+    "stage": "Financial remedy proceedings ongoing at the Family Court at Leeds",
+    "summary": "A solicitor seeks around £23,000 to fund his client's costs to conclusion in financial remedy proceedings at Leeds, where matrimonial assets are said to be about £324,500.",
+    "confidence": 0.92,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To progress a review we would need confirmation of your client's identity and address details, a breakdown of the estimated costs to conclusion, and details of the matrimonial assets including the properties, their values and any charges against them. It would also help to have the current procedural position, including any listed hearing dates and the stage of financial disclosure. Nothing in this message should be taken as an offer or an indication of terms. A member of the team will be in touch once the file has been reviewed."
+  },
+  "latency_ms": 7158,
+  "input_tokens": 1529,
+  "output_tokens": 374,
+  "cost_usd": 0.016995,
+  "prompt_hash": "3ef8b8150f912c13",
+  "cached_at": "2026-10-08T18:40:27.859Z"
+}

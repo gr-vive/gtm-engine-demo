@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 37500,
+    "security_gbp": 251500,
+    "hearing_in_days": 15,
+    "has_solicitor": true,
+    "solicitor_firm": "Greaves Solicitors",
+    "stage": "Pending grant of probate; IHT due",
+    "summary": "A solicitor administering a Bath estate worth about £251,500 (mainly the deceased's home, little cash) asks for £37,500 to pay inheritance tax and fees before the grant of probate, with tax due 4 September.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry about funding for the estate you are administering in Bath. We have noted the requested £37,500, the gross estate value of approximately £251,500, and the 4 September tax deadline. To take this further we would need confirmation of the deceased's details and date of death, a breakdown of the estate assets and liabilities, details of any existing charges on the property, the IHT400 or draft computation, confirmation of the executors' identities and consent, and your firm's client care details. Once we have those we will review the matter and come back to you."
+  },
+  "latency_ms": 7250,
+  "input_tokens": 1473,
+  "output_tokens": 389,
+  "cost_usd": 0.01709,
+  "prompt_hash": "2f479077b3720627",
+  "cached_at": "2026-10-08T18:39:52.348Z"
+}

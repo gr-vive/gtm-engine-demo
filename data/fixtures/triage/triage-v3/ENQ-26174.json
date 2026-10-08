@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 37000,
+    "security_gbp": 400000,
+    "hearing_in_days": 12,
+    "has_solicitor": true,
+    "solicitor_firm": "Garside Law",
+    "stage": "Ongoing financial remedy proceedings with a hearing listed",
+    "summary": "A partner at Garside Law enquires about £37,000 of funding for a client's representation in ongoing financial remedy proceedings where around £400k of matrimonial assets are in dispute and a hearing is listed for 21 September 2026.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To progress our review we would need confirmation of the jurisdiction and the court in which the proceedings are issued, details of the asset schedule and how the £400k pot is made up, and a costs estimate or budget supporting the £37,000 figure. It would also help to have your client's details for onboarding and confirmation of your firm's involvement going forward. We cannot comment on whether funding is available or on any terms at this stage, but we will come back to you once we have reviewed the information provided. Please do send anything further you think relevant."
+  },
+  "latency_ms": 6422,
+  "input_tokens": 1487,
+  "output_tokens": 393,
+  "cost_usd": 0.01726,
+  "prompt_hash": "33814d796c13dc59",
+  "cached_at": "2026-10-08T18:43:04.175Z"
+}

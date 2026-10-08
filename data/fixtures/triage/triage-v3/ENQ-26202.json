@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 206000,
+    "security_gbp": 813500,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Iqbal & Jensen Family Law",
+    "stage": "Pre-grant; IHT payable before grant application, grant expected within 15 weeks",
+    "summary": "A solicitor acting for executors enquires about a £206,000 probate loan to pay inheritance tax before obtaining the grant, against an estate valued at £813,500.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry regarding probate funding for your executor clients. We have noted the estate value of £813,500 and the £206,000 requested for the inheritance tax liability. To take this further we would need confirmation of the jurisdiction in which the estate is being administered, the specific IHT payment deadline, details of the estate assets and any liabilities or charges against the property, confirmation of the executors' identities and their authority to borrow, and a copy of the will if available. Once we have these we will review the enquiry and come back to you."
+  },
+  "latency_ms": 9430,
+  "input_tokens": 1473,
+  "output_tokens": 433,
+  "cost_usd": 0.01819,
+  "prompt_hash": "41beffb60d9c51bc",
+  "cached_at": "2026-10-08T18:44:49.237Z"
+}

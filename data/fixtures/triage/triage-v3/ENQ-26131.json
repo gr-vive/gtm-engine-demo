@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 64000,
+    "security_gbp": 475000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Greaves & Co",
+    "stage": "Before grant of probate; inheritance tax due",
+    "summary": "An executor in Chester seeks around £64,000 to pay inheritance tax on a largely illiquid estate valued at about £475,000, mainly a property, before the grant of probate can be issued.",
+    "confidence": 0.95,
+    "draft_reply": "Thank you for your enquiry and for the detail you have already provided about your late father's estate. To take this further we would need confirmation of your appointment as executor, a copy of the will and the death certificate, the IHT400 figures or draft inheritance tax calculation, and evidence of the property's value and any other estate assets and liabilities. It would also help to have your solicitors at Greaves & Co confirm they are instructed and able to act on the estate administration. Once we have those documents we will review the enquiry and come back to you. Nothing in this message should be taken as an offer or an indication that funding will be available."
+  },
+  "latency_ms": 6328,
+  "input_tokens": 1473,
+  "output_tokens": 376,
+  "cost_usd": 0.016765,
+  "prompt_hash": "026d540ca061644d",
+  "cached_at": "2026-10-08T18:40:27.028Z"
+}

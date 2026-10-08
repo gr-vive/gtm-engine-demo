@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 34000,
+    "security_gbp": 675000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Fischer Legal",
+    "stage": "Before grant of probate; inheritance tax due",
+    "summary": "An executor of his late aunt's estate, mostly a Guildford house worth about £675,000, seeks around £34,000 to pay inheritance tax before the grant of probate is issued.",
+    "confidence": 0.93,
+    "draft_reply": "Thank you for your enquiry about funding the inheritance tax on your late aunt's estate. We have noted the approximate estate value, the sum you mention, and that Fischer Legal are instructed. To take this further we would need a copy of the will, confirmation of your appointment as executor, a breakdown of the estate's assets and liabilities, the IHT calculation or HMRC reference, details of any other beneficiaries, and your solicitor's written confirmation that they are acting. Once we have those we will review the matter and come back to you; nothing in this email is an offer or an indication of terms."
+  },
+  "latency_ms": 6669,
+  "input_tokens": 1479,
+  "output_tokens": 380,
+  "cost_usd": 0.016895,
+  "prompt_hash": "039ed589d1453095",
+  "cached_at": "2026-10-08T18:43:11.488Z"
+}

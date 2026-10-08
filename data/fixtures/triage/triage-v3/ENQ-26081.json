@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "unclear",
+    "requested_gbp": 115500,
+    "security_gbp": 571000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Ellery Law",
+    "stage": "Pending grant of probate, grant expected within 14 weeks",
+    "summary": "A solicitor acting for executors seeks a £115,500 probate loan to cover inheritance tax and legal fees against an estate valued at £571,000 while the grant of probate is awaited.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry on behalf of the executors; we have logged the details of the £571,000 estate and the £115,500 requested. To take this further we would need confirmation of the jurisdiction in which the estate is being administered, a breakdown of the estate assets and any liabilities, the IHT400 figures and the relevant HMRC payment deadline, and confirmation of the executors' identities and their consent to the application. Please also confirm whether the residential property is registered, its current valuation basis, and whether any other borrowing is secured against it. Once we have those items a member of our team will review the enquiry and come back to you. Nothing in this message should be taken as an offer or an indication of terms."
+  },
+  "latency_ms": 6691,
+  "input_tokens": 1455,
+  "output_tokens": 468,
+  "cost_usd": 0.018975,
+  "prompt_hash": "05c856624528b006",
+  "cached_at": "2026-10-08T18:44:17.182Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 27000,
+    "security_gbp": 439500,
+    "hearing_in_days": 45,
+    "has_solicitor": true,
+    "solicitor_firm": "Quarrie & Ellery Partners",
+    "stage": "Ongoing matrimonial proceedings with a hearing listed, running to settlement or trial",
+    "summary": "A solicitor enquires about £27,000 of funding for a client's representation in ongoing matrimonial proceedings where the disputed assets are around £439,500 and a hearing is listed for 13 October.",
+    "confidence": 0.88,
+    "draft_reply": "Thank you for your enquiry on behalf of your client, which we have received and logged. To progress our review we would need confirmation of the jurisdiction and court in which the proceedings are issued, details of the composition and current value of the assets in dispute, and confirmation of your client's position on costs incurred to date and estimated to trial. It would also help to have the case stage, the nature of the hearing listed for 13 October, and your firm's client care and costs information. We cannot comment at this stage on whether funding is available or on any terms. A member of the team will be in touch once the above has been reviewed."
+  },
+  "latency_ms": 6921,
+  "input_tokens": 1496,
+  "output_tokens": 416,
+  "cost_usd": 0.01788,
+  "prompt_hash": "4e0bfbe5f93175e3",
+  "cached_at": "2026-10-08T18:41:35.234Z"
+}

@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "probate",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 57500,
+    "security_gbp": 343000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Ashcroft & Varga Law",
+    "stage": "Before grant of probate; inheritance tax due",
+    "summary": "An executor seeks around £57,500 to pay inheritance tax on her late mother's estate, which is mainly a Harrogate property valued at about £343,000 with little cash.",
+    "confidence": 0.94,
+    "draft_reply": "Thank you for your enquiry about funding the inheritance tax due on your late mother's estate. To take this further we will need a copy of the will and details of your appointment as executor, a breakdown of the estate's assets and liabilities, the property valuation for the Harrogate house, and confirmation of the IHT figure and any due date. It would also help to have written confirmation that Ashcroft & Varga Law are instructed and contact details for the fee earner handling the matter. Once we have those we can review the enquiry and come back to you; nothing in this message should be taken as an offer or an indication of terms."
+  },
+  "latency_ms": 5716,
+  "input_tokens": 1491,
+  "output_tokens": 391,
+  "cost_usd": 0.01723,
+  "prompt_hash": "4243a95cdcf8dee2",
+  "cached_at": "2026-10-08T18:45:28.384Z"
+}

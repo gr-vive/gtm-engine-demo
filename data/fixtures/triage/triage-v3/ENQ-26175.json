@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "England and Wales",
+    "requested_gbp": 3000,
+    "security_gbp": 154000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Lindqvist Legal LLP",
+    "stage": "Children and finance proceedings, upcoming hearing",
+    "summary": "A family solicitor asks whether roughly £3,000 to cover a counsel's fee in a children and finance matter at the Family Court sitting at Cardiff, with about £154,000 of assets in dispute, meets the minimum loan size.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry, which we have received and logged. To consider it further we would need the date of the next hearing, confirmation of the stage the proceedings have reached, details of the assets in dispute and how they are held, and your client's details along with any existing charges or security over those assets. A note of the total anticipated costs, rather than the single counsel's fee alone, would also be helpful. Once we have that information a member of the team will come back to you. Nothing in this message constitutes an offer of funding or any indication of terms."
+  },
+  "latency_ms": 6973,
+  "input_tokens": 1478,
+  "output_tokens": 394,
+  "cost_usd": 0.01724,
+  "prompt_hash": "319074a1ee215103",
+  "cached_at": "2026-10-08T18:43:48.476Z"
+}

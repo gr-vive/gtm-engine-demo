@@ -1,0 +1,23 @@
+{
+  "provider": "anthropic",
+  "model": "claude-opus-5",
+  "extracted": {
+    "product": "family_law",
+    "jurisdiction": "unclear",
+    "requested_gbp": 40000,
+    "security_gbp": 335000,
+    "hearing_in_days": null,
+    "has_solicitor": true,
+    "solicitor_firm": "Finch & Co",
+    "stage": "Ongoing matrimonial proceedings, through to settlement or trial",
+    "summary": "A solicitor at Finch & Co enquires about £40,000 of funding for a client's representation in ongoing matrimonial proceedings where the disputed assets total around £335,000 and the other side controls the liquid funds.",
+    "confidence": 0.9,
+    "draft_reply": "Thank you for your enquiry on behalf of your client. To take this further we would need confirmation of the jurisdiction of the proceedings, the current stage and any listed hearing dates, and a breakdown of the assets in dispute together with evidence of their value. It would also help to have an estimate of costs to settlement or trial and details of your client's own resources and any existing charges over the assets. Once we have those details a member of the team will review the enquiry and come back to you. Nothing in this message should be taken as an indication that funding will be offered or on what terms."
+  },
+  "latency_ms": 7113,
+  "input_tokens": 1473,
+  "output_tokens": 411,
+  "cost_usd": 0.01764,
+  "prompt_hash": "7aef12de05c76b16",
+  "cached_at": "2026-10-08T18:40:09.365Z"
+}
