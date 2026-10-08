@@ -23,7 +23,16 @@ function gather() {
   const attribution = fs.existsSync(attrFile) ? JSON.parse(fs.readFileSync(attrFile, 'utf8')) : require('../attribution').report(conn, { quiet: true });
   const evalRow = db.one(conn, 'SELECT * FROM shadow_evals ORDER BY run_at DESC LIMIT 1');
   const ai = evalRow
-    ? { ...evalRow, confusion: JSON.parse(evalRow.confusion_json), flagged: JSON.parse(evalRow.flagged_json || '[]'), decisions: db.scalar(conn, 'SELECT COUNT(*) FROM ai_decisions'), audit_rows: db.scalar(conn, 'SELECT COUNT(*) FROM audit_log'), providers: db.all(conn, 'SELECT provider, COUNT(*) AS n FROM ai_decisions GROUP BY provider') }
+    ? {
+        ...evalRow,
+        confusion: JSON.parse(evalRow.confusion_json),
+        flagged: JSON.parse(evalRow.flagged_json || '[]'),
+        decisions: db.scalar(conn, 'SELECT COUNT(*) FROM ai_decisions'),
+        audit_rows: db.scalar(conn, 'SELECT COUNT(*) FROM audit_log'),
+        providers: db.all(conn, 'SELECT provider, COUNT(*) AS n FROM ai_decisions GROUP BY provider'),
+        rules_version: db.scalar(conn, 'SELECT rules_version FROM ai_decisions ORDER BY created_at DESC LIMIT 1'),
+        history: db.all(conn, 'SELECT run_at, route_agreement, n FROM shadow_evals ORDER BY run_at DESC LIMIT 5'),
+      }
     : null;
   const registry = require('../audience/pipeline').registrySummary(true);
   const funnel12 = db.all(
@@ -73,11 +82,23 @@ h2{font-size:15px;margin:0 0 10px;font-weight:650}
 .tile .v{font-size:24px;font-weight:650;letter-spacing:-.01em;margin-top:2px;font-variant-numeric:tabular-nums}
 .tile .d{font-size:12px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
 .d.up{color:var(--good)}.d.down{color:var(--critical)}
-.cards{grid-template-columns:repeat(auto-fit,minmax(340px,1fr));margin-top:16px}
-.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--surface)}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:16px}
+@media (max-width:760px){.cards{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--surface);min-width:0;overflow:hidden}
 .card.wide{grid-column:1/-1}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0 14px}
+.stat{background:var(--surface-2);border-radius:8px;padding:9px 11px;min-width:0}
+.stat .k{font-size:11px;color:var(--text-2);line-height:1.3}
+.stat .v{font-size:20px;font-weight:650;letter-spacing:-.01em;font-variant-numeric:tabular-nums;margin-top:2px}
+.stat .v.good{color:var(--good)}.stat .v.bad{color:var(--critical)}
+table.kv td:first-child{color:var(--text-2);white-space:normal;padding-right:14px}
+table.kv td:last-child{font-weight:600;white-space:nowrap}
+table.kv tr:last-child td{border-bottom:0}
+.sub-h{font-size:12px;font-weight:600;color:var(--text-2);margin:14px 0 4px;text-transform:uppercase;letter-spacing:.04em}
 .note{font-size:12px;color:var(--muted);margin:6px 0 0}
 svg{width:100%;height:auto;display:block;overflow:visible}
+.scroll{overflow-x:auto;padding-bottom:4px}
+.scroll svg{min-width:720px}
 .axis text,.lbl{fill:var(--text-2);font-size:11px}
 .axis line,.grid-line{stroke:var(--grid);stroke-width:1}
 .base{stroke:var(--line);stroke-width:1}
@@ -85,8 +106,8 @@ svg{width:100%;height:auto;display:block;overflow:visible}
 .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--text-2);margin:4px 0 8px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
 table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;font-size:13px}
-th,td{padding:6px 8px;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap}
-th:first-child,td:first-child{text-align:left}
+th,td{padding:6px 8px;border-bottom:1px solid var(--grid);text-align:right;white-space:nowrap;vertical-align:top}
+th:first-child,td:first-child{text-align:left;white-space:normal}
 th{color:var(--text-2);font-weight:600;font-size:12px}
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
 .tabs button{font:inherit;font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--text-2);cursor:pointer}
@@ -116,7 +137,7 @@ a{color:var(--s1)}
   <div class="card wide">
     <h2>Enquiries and funded loans, trailing 12 weeks</h2>
     <div class="legend" id="trend-legend"></div>
-    <div id="trend"></div>
+    <div id="trend" class="scroll"></div>
     <details><summary>table</summary><div id="trend-table"></div></details>
   </div>
 
@@ -136,8 +157,8 @@ a{color:var(--s1)}
     <h2>Which channel produced the funded loans</h2>
     <div class="tabs" id="models" role="group" aria-label="attribution model"></div>
     <div class="legend"><span><i style="background:var(--s1)"></i>attribution (selected model)</span><span><i style="background:var(--ref)"></i>Salesforce “Lead Source” as typed</span></div>
-    <div id="channels"></div>
-    <div id="channel-table"></div>
+    <div id="channels" class="scroll"></div>
+    <div id="channel-table" class="scroll"></div>
     <p class="note" id="attr-note"></p>
   </div>
 
@@ -297,19 +318,31 @@ function hideTip() { tip.style.opacity = 0; }
   const routes = ['family_team', 'probate_team', 'decline', 'needs_more_info'];
   const wrongDecline = routes.filter((h) => h !== 'decline').reduce((s, h) => s + (a.confusion[h].decline || 0), 0);
   const pass = a.route_agreement >= 0.9 && wrongDecline === 0;
+  const provs = Object.fromEntries(a.providers.map((p) => [p.provider, p.n]));
+  const reader = provs.anthropic || provs.fixture ? esc(a.model) + (provs.fixture ? ' · cached readings' : ' · live') : 'mock reader (no API key)';
   let h = '<div class="gate ' + (pass ? 'pass' : 'hold') + '">' + (pass ? '✔ gate: pass · safe to move to assist mode' : '✖ gate: hold · stay in shadow') + '</div>';
-  h += '<table style="margin-top:10px"><tr><td>enquiries evaluated</td><td>' + a.n + '</td></tr><tr><td>route agreement with the human decision</td><td>' + pct(a.route_agreement) + '</td></tr><tr><td>product agreement</td><td>' + pct(a.product_agreement) + '</td></tr><tr><td>max-loan arithmetic error (MAPE)</td><td>' + pct(a.amount_mape) + '</td></tr><tr><td>would have declined a case a person took</td><td>' + wrongDecline + '</td></tr><tr><td>reader</td><td>' + a.providers.map((p) => p.provider + ' ×' + p.n).join(', ') + '</td></tr><tr><td>model cost for the batch</td><td>$' + Number(a.cost_usd).toFixed(4) + '</td></tr><tr><td>audit log rows</td><td>' + num(a.audit_rows) + '</td></tr></table>';
-  h += '<details><summary>confusion matrix (rows = human, columns = rules + AI)</summary><table class="cm"><tr><th></th>' + routes.map((r) => '<th>' + r + '</th>').join('') + '</tr>' + routes.map((hr) => '<tr><td>' + hr + '</td>' + routes.map((ar) => '<td class="' + (hr === ar ? 'diag' : a.confusion[hr][ar] ? 'off' : '') + '">' + a.confusion[hr][ar] + '</td>').join('') + '</tr>').join('') + '</table></details>';
-  h += '<p class="note">Shadow mode: the model reads, coded rules route, the decision is logged and compared with what a person decided. Nothing is sent. Prompt ' + esc(a.prompt_version) + ', model ' + esc(a.model) + '.</p>';
+  h += '<div class="stats">'
+    + '<div class="stat"><div class="k">route agreement with the human decision</div><div class="v ' + (a.route_agreement >= 0.9 ? 'good' : 'bad') + '">' + pct(a.route_agreement) + '</div></div>'
+    + '<div class="stat"><div class="k">max-loan arithmetic error</div><div class="v">' + pct(a.amount_mape) + '</div></div>'
+    + '<div class="stat"><div class="k">would have declined a case a person took</div><div class="v ' + (wrongDecline === 0 ? 'good' : 'bad') + '">' + wrongDecline + '</div></div>'
+    + '</div>';
+  h += '<table class="kv"><tr><td>enquiries evaluated</td><td>' + a.n + '</td></tr><tr><td>product agreement</td><td>' + pct(a.product_agreement) + '</td></tr><tr><td>reader</td><td>' + reader + '</td></tr><tr><td>prompt · rules</td><td>' + esc(a.prompt_version) + ' · ' + esc(a.rules_version || '') + '</td></tr><tr><td>model cost for the batch</td><td>$' + Number(a.cost_usd).toFixed(2) + '</td></tr><tr><td>audit log rows</td><td>' + num(a.audit_rows) + '</td></tr></table>';
+  h += '<details><summary>confusion matrix (rows = human, columns = rules + AI)</summary><table class="cm"><tr><th></th>' + routes.map((r) => '<th>' + r.replace('_', ' ') + '</th>').join('') + '</tr>' + routes.map((hr) => '<tr><td>' + hr.replace('_', ' ') + '</td>' + routes.map((ar) => '<td class="' + (hr === ar ? 'diag' : a.confusion[hr][ar] ? 'off' : '') + '">' + a.confusion[hr][ar] + '</td>').join('') + '</tr>').join('') + '</table></details>';
+  h += '<p class="note">Shadow mode: the model reads, coded rules route, the decision is logged and compared with what a person decided. Nothing is sent. Promotion needs at least 90% agreement and zero wrongful declines.</p>';
   $('#ai').innerHTML = h;
 })();
 
 // ---- registry
 (function () {
   const r = D.registry;
-  let h = '<table><tr><td>profiles</td><td>' + num(r.total) + '</td></tr><tr><td>pushed to a sequence</td><td>' + num(r.pushed) + ' (' + pct(r.pushed / r.total) + ')</td></tr><tr><td>replied</td><td>' + num(r.replied) + ' (' + pct(r.replied / (r.pushed || 1)) + ' of pushed)</td></tr><tr><td>meetings</td><td>' + num(r.meetings) + '</td></tr><tr><td>waiting for the daily cap</td><td>' + num(r.eligible) + '</td></tr>' + (r.awaiting_contact_data ? '<tr><td>real people from the register awaiting contact data</td><td>' + num(r.awaiting_contact_data) + '</td></tr>' : '') + '<tr><td>suppressed</td><td>' + num(r.suppressed) + '</td></tr></table>';
-  h += '<table style="margin-top:10px"><tr><th>segment</th><th>profiles</th><th>pushed</th><th>replied</th><th>reply rate</th></tr>' + r.segments.map((s) => '<tr><td>' + s.segment + '</td><td>' + s.n + '</td><td>' + s.pushed + '</td><td>' + s.replied + '</td><td>' + pct(s.pushed ? s.replied / s.pushed : null) + '</td></tr>').join('') + '</table>';
-  h += '<p class="note">The registry is the source of truth for who is in the outbound audience; the sequencing tool only ever sees the next ' + ${config.AUDIENCE_DAILY_PUSH_CAP} + ' eligible profiles per day.</p>';
+  let h = '<div class="stats">'
+    + '<div class="stat"><div class="k">profiles in the registry</div><div class="v">' + num(r.total) + '</div></div>'
+    + '<div class="stat"><div class="k">pushed to a sequence</div><div class="v">' + num(r.pushed) + '</div></div>'
+    + '<div class="stat"><div class="k">reply rate of pushed</div><div class="v">' + pct(r.replied / (r.pushed || 1)) + '</div></div>'
+    + '</div>';
+  h += '<table class="kv"><tr><td>replied · meetings booked</td><td>' + num(r.replied) + ' · ' + num(r.meetings) + '</td></tr><tr><td>waiting for the daily cap of ' + ${config.AUDIENCE_DAILY_PUSH_CAP} + '</td><td>' + num(r.eligible) + '</td></tr>' + (r.awaiting_contact_data ? '<tr><td>real people from the Companies House register, parked until a real enrichment provider finds contact details</td><td>' + num(r.awaiting_contact_data) + '</td></tr>' : '') + '<tr><td>suppressed (do not contact)</td><td>' + num(r.suppressed) + '</td></tr></table>';
+  h += '<div class="sub-h">by segment</div><table><tr><th>segment</th><th>profiles</th><th>pushed</th><th>replied</th><th>reply rate</th></tr>' + r.segments.map((s) => '<tr><td>' + s.segment.replace(/_/g, ' ') + '</td><td>' + s.n + '</td><td>' + s.pushed + '</td><td>' + s.replied + '</td><td>' + pct(s.pushed ? s.replied / s.pushed : null) + '</td></tr>').join('') + '</table>';
+  h += '<p class="note">The registry is the source of truth for who is in the outbound audience. The sequencing tool only ever sees the next ' + ${config.AUDIENCE_DAILY_PUSH_CAP} + ' eligible profiles per day, and nobody without real contact details.</p>';
   $('#registry').innerHTML = h;
 })();
 
