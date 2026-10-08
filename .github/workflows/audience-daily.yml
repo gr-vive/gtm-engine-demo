@@ -29,6 +29,8 @@ jobs:
         run: node bin/gtm.js seed
       - name: Discover, dedup, enrich, qualify, push
         run: node bin/gtm.js audience run
+        env:
+          COMPANIES_HOUSE_API_KEY: ${{ secrets.COMPANIES_HOUSE_API_KEY }}   # live register when set
       - name: Sync sequencer statuses
         run: node bin/gtm.js audience sync
       - name: Buying signals

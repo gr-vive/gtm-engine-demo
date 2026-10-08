@@ -28,6 +28,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node bin/gtm.js seed
+      - name: Audience run (so the registry card reflects the live register)
+        run: node bin/gtm.js audience run
+        env:
+          COMPANIES_HOUSE_API_KEY: ${{ secrets.COMPANIES_HOUSE_API_KEY }}
       - run: node bin/gtm.js attribution run
       - run: node bin/gtm.js report weekly
       - name: Slack digest (dry run unless the secret is set)
