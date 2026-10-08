@@ -17,7 +17,7 @@ Everything is synthetic. Firms, people, spend, touches, Salesforce objects, loan
 
 ```bash
 npm install
-npm run demo        # the whole engine, end to end, about 5 seconds
+npm run demo        # the whole engine, end to end: 5 seconds offline, about 15 with the live register
 ```
 
 Needs Node 22.13 or newer (SQLite is built in, there is nothing native to compile). No API keys are required: the model reader uses the cached Claude responses in `data/fixtures/`, and Slack delivery runs dry. Two optional keys make two parts live:
@@ -29,7 +29,8 @@ What the demo prints, in order:
 
 ```
 1 · Seed the world        708 firms, 1,798 contacts, 80,536 touches, 1,636 opportunities, 465 funded loans
-2 · Audience              discover 45 → dedup 7 known → enrich → 17 qualified → 40 pushed (daily cap) · 199 waiting
+2 · Audience              discover 71 (26 live from the Companies House register) → 9 known → enrich → 40 qualified → 40 pushed (daily cap)
+                          23 real people from the register parked until a real enrichment provider finds contact details
 3 · Attribution           1,151 anonymous ids resolved · 1,590 journeys · 5 models · cost per funded loan by channel
 4 · One set of numbers    weekly funnel by product × channel · cohort view · trailing 12 weeks · Slack digest
 5 · AI capability layer   240 enquiries read by Claude → rules applied → logged in shadow mode → 93.8% agreement, gate HOLD (1 wrongful decline)

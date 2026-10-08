@@ -293,7 +293,14 @@ async function push(m, conn) {
   const results = await sequencer.pushLeads(batch);
   const upd = conn.prepare('UPDATE audience_registry SET pushed_at=?, sequencer=?, sequencer_lead_id=? WHERE profile_key=?');
   for (const r of results) upd.run(now(), r.sequencer, r.sequencer_lead_id, r.profile_key);
-  conn.prepare("UPDATE audience_candidates SET status='pushed', updated_at=? WHERE run_id=? AND status='qualified'").run(now(), m.run_id);
+  // candidate status: 'pushed' only if this run's push actually took them; otherwise 'registered'
+  const pushedKeys = new Set(results.map((r) => r.profile_key));
+  const updCand = conn.prepare('UPDATE audience_candidates SET status=?, reason=?, updated_at=? WHERE candidate_id=?');
+  for (const c of rows) {
+    const key = profileKey(c);
+    if (key && pushedKeys.has(key)) updCand.run('pushed', c.reason, now(), c.candidate_id);
+    else updCand.run('registered', !c.email && !c.linkedin_url ? 'awaiting_contact_data' : 'waiting_for_daily_cap', now(), c.candidate_id);
+  }
   const remaining = db.scalar(conn, `SELECT COUNT(*) FROM audience_registry r JOIN contacts c ON c.contact_id = r.contact_id WHERE r.pushed_at IS NULL AND r.suppressed=0 AND r.fit_score >= ? AND (c.email IS NOT NULL OR c.linkedin_url IS NOT NULL)`, config.AUDIENCE_MIN_FIT_SCORE);
   manifest.artifact(m, 'pushed.json', results);
   const bySeq = results.reduce((a, r) => ((a[r.sequencer] = (a[r.sequencer] || 0) + 1), a), {});
@@ -354,8 +361,10 @@ function status(runId) {
 
 function registrySummary(quiet = false) {
   const conn = db.open();
-  const r = db.one(conn, `SELECT COUNT(*) AS total, SUM(pushed_at IS NOT NULL) AS pushed, SUM(replied_at IS NOT NULL) AS replied, SUM(meeting_at IS NOT NULL) AS meetings, SUM(suppressed) AS suppressed,
-                           SUM(pushed_at IS NULL AND suppressed=0 AND fit_score >= ${config.AUDIENCE_MIN_FIT_SCORE}) AS eligible FROM audience_registry`);
+  const r = db.one(conn, `SELECT COUNT(*) AS total, SUM(r.pushed_at IS NOT NULL) AS pushed, SUM(r.replied_at IS NOT NULL) AS replied, SUM(r.meeting_at IS NOT NULL) AS meetings, SUM(r.suppressed) AS suppressed,
+                           SUM(r.pushed_at IS NULL AND r.suppressed=0 AND r.fit_score >= ${config.AUDIENCE_MIN_FIT_SCORE} AND (c.email IS NOT NULL OR c.linkedin_url IS NOT NULL)) AS eligible,
+                           SUM(c.email IS NULL AND c.linkedin_url IS NULL) AS awaiting_contact_data
+                           FROM audience_registry r LEFT JOIN contacts c ON c.contact_id = r.contact_id`);
   const seg = db.all(conn, 'SELECT segment, COUNT(*) AS n, SUM(pushed_at IS NOT NULL) AS pushed, SUM(replied_at IS NOT NULL) AS replied FROM audience_registry GROUP BY segment ORDER BY n DESC');
   if (!quiet) {
     ui.section('Outbound registry');
@@ -365,6 +374,7 @@ function registrySummary(quiet = false) {
       ['replied', `${ui.num(r.replied)}  (${ui.pct(r.replied / (r.pushed || 1))} of pushed)`],
       ['meetings', ui.num(r.meetings)],
       ['waiting for the daily cap', ui.num(r.eligible)],
+      ['real people awaiting contact data', ui.num(r.awaiting_contact_data)],
       ['suppressed (do not contact)', ui.num(r.suppressed)],
     ]);
     ui.table(seg, [

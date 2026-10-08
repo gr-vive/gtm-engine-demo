@@ -121,7 +121,7 @@ function seed({ reset = true, quiet = false } = {}) {
       size_band: size,
       website_domain: domain,
       on_panel: !outside && rng.chance(0.12) ? 1 : 0,
-      source: rng.weighted({ sra_register: 0.4, law_society: 0.25, companies_house: 0.1, events: 0.1, linkedin: 0.15 }),
+      source: rng.weighted({ sra_register: 0.4, law_society: 0.25, directory: 0.1, events: 0.1, linkedin: 0.15 }), // mock sources; 'companies_house' is reserved for the live connector
       first_seen_at: iso(addDays(worldEnd, -rng.int(30, 720))),
     };
     firms.push(firm);
