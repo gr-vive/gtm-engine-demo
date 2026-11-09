@@ -1,6 +1,6 @@
 # Attribution report
 
-Window: 2026-04-06 to 2026-09-28 (26 weeks). Generated 2026-11-02T16:45:42.803Z.
+Window: 2026-04-06 to 2026-09-28 (26 weeks). Generated 2026-11-09T17:04:51.573Z.
 
 Opportunities: 1213 (326 funded). Unattributed: 33 (2.7%).
 
